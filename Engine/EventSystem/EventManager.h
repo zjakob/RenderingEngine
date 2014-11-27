@@ -1,0 +1,38 @@
+#ifndef EVENT_MANAGER_H
+#define EVENT_MANAGER_H
+
+#include <string>
+#include <memory>
+
+#include ".\Dispatcher\DispatchStrategy.h"
+#include ".\Listener\Strategy\ListenerStrategy.h"
+#include ".\Listener\EventListener.h"
+
+class EventManager
+{
+public:
+	/*
+	 * since dependency injection is used for the strategy pattern
+	 * object lifetime should also be handled by the injecting caller and not by EventManager. (this should also be reflected in the documentation!)
+	 * to avoid depending on an already deleted/freed object, a factory class needs to be created to inject the dependencies into EventManager. Otherwise EventManager needs ownership of the dependencies!
+	 * if ownership is required by EventManager then smart-pointers (shared ptrs for all ownerships and weak ptrs for plain references) must be used here instead of references/raw-pointers
+	 * never copy the object by value since it can cause object-slicing (losing information of the derived class when copied to super class)
+	 * if pointers are used for the member variables, then ideally the dependencies should still be passed as references to the constructor (passing NULL is impossible) but then be assigned to the pointer member variables
+	 */
+	EventManager(DispatchStrategy& dispatchStrategy, ListenerStrategy& listenerStrategy)
+		: dispatchStrategy(&dispatchStrategy), listenerStrategy(&listenerStrategy)
+	{}
+	void update() { dispatchStrategy->update();	};
+	inline void dispatchEvent(Event* event) { dispatchStrategy->dispatchEvent(event); }
+	inline void addEventListener(EventListener& listener, std::string eventType) { listenerStrategy->addListener(eventType, listener); };
+
+private:
+	// using references as member variables can cause issues when copying an object.
+	// so either prevent an object from being copied (private copy-constr/assignm-op)
+	// or use pointers instead of references
+	// pointers are prefereable/only way if member should be resetable (which is the case for the strategies)
+	DispatchStrategy* dispatchStrategy;
+	ListenerStrategy* listenerStrategy;
+};
+
+#endif

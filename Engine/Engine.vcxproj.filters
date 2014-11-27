@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Entities\Player.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\EventManager.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Event\KeyUpEvent.cpp">
+      <Filter>EventSystem\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
+      <Filter>EventSystem\Dispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Listener\KeyEventListener.cpp">
+      <Filter>EventSystem\Listener</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Listener\EventListener.cpp">
+      <Filter>EventSystem\Listener</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{3f49f910-dcdd-4651-9f18-41ee5c37f51d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem">
+      <UniqueIdentifier>{218d4bda-6151-49b1-adf6-50778e01e37a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem\Event">
+      <UniqueIdentifier>{a9d21328-89dd-42c2-b87e-6404252c76d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem\Dispatcher">
+      <UniqueIdentifier>{3183890c-c9b6-452a-b5e9-1959beac18a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem\Listener">
+      <UniqueIdentifier>{962f90b5-fe2f-401c-96b6-ba79041faa5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem\Listener\Strategy">
+      <UniqueIdentifier>{1470be20-917e-49a1-8c05-6df7e20d6288}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entities\Player.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\EventManager.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Event\KeyUpEvent.h">
+      <Filter>EventSystem\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Event\Event.h">
+      <Filter>EventSystem\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Dispatcher\DispatchStrategy.h">
+      <Filter>EventSystem\Dispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Dispatcher\QueuedDispatchStrategy.h">
+      <Filter>EventSystem\Dispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\KeyEventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\EventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\Strategy\SaveListenerStrategy.h">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\Strategy\ListenerStrategy.h">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
