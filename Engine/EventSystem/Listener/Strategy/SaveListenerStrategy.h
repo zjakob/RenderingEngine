@@ -12,11 +12,11 @@
 class SaveListenerStrategy : public ListenerStrategy
 {
 public:
-	virtual void addListener(std::string eventName, EventListener& listener);
-	virtual void removeListener(std::string eventName, EventListener& listener);
+	virtual void addListener(std::string eventName, EventListener<Event>* listener);
+	virtual void removeListener(std::string eventName, EventListener<Event>* listener);
 	virtual void fireEvent(Event& event);
 private:
-	std::unordered_map<std::string, std::list<EventListener*>> listeners;
+	std::unordered_map<std::string, std::list<EventListener<Event>*>> listeners;
 };
 
 #endif

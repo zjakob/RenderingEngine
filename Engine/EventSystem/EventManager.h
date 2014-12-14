@@ -3,10 +3,13 @@
 
 #include <string>
 #include <memory>
+#include <cassert>
+#include <functional>
 
 #include ".\Dispatcher\DispatchStrategy.h"
 #include ".\Listener\Strategy\ListenerStrategy.h"
 #include ".\Listener\EventListener.h"
+#include ".\Event\Event.h"
 
 class EventManager
 {
@@ -19,20 +22,26 @@ public:
 	 * never copy the object by value since it can cause object-slicing (losing information of the derived class when copied to super class)
 	 * if pointers are used for the member variables, then ideally the dependencies should still be passed as references to the constructor (passing NULL is impossible) but then be assigned to the pointer member variables
 	 */
-	EventManager(DispatchStrategy& dispatchStrategy, ListenerStrategy& listenerStrategy)
-		: dispatchStrategy(&dispatchStrategy), listenerStrategy(&listenerStrategy)
-	{}
-	void update() { dispatchStrategy->update();	};
+	EventManager(DispatchStrategy* dispatchStrategy, ListenerStrategy* listenerStrategy)
+		: dispatchStrategy(dispatchStrategy), listenerStrategy(listenerStrategy)
+	{
+		assert(dispatchStrategy != nullptr);
+		assert(listenerStrategy != nullptr);
+	}
+
+	inline void update() { 
+		dispatchStrategy->update(*(listenerStrategy.get()));
+	};
 	inline void dispatchEvent(Event* event) { dispatchStrategy->dispatchEvent(event); }
-	inline void addEventListener(EventListener& listener, std::string eventType) { listenerStrategy->addListener(eventType, listener); };
+	inline void addEventListener(std::string eventType, EventListener<Event>* listener) { listenerStrategy->addListener(eventType, listener); };
 
 private:
 	// using references as member variables can cause issues when copying an object.
 	// so either prevent an object from being copied (private copy-constr/assignm-op)
 	// or use pointers instead of references
 	// pointers are prefereable/only way if member should be resetable (which is the case for the strategies)
-	DispatchStrategy* dispatchStrategy;
-	ListenerStrategy* listenerStrategy;
+	std::unique_ptr<DispatchStrategy> dispatchStrategy;
+	std::unique_ptr<ListenerStrategy> listenerStrategy;
 };
 
 #endif

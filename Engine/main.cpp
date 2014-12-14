@@ -12,16 +12,20 @@ using namespace std;
 int main()
 {
 	cout << "--- Event System ---" << endl;
+	
+	EventManager mngr(new QueuedDispatchStrategy(), new SaveListenerStrategy());
+	Player* player = new Player();
 
-	SaveListenerStrategy listenerStrategy;
-	QueuedDispatchStrategy dispatchStrategy(listenerStrategy);
-	
-	EventManager mngr(dispatchStrategy, listenerStrategy);
-	Player player;
-	
-	mngr.addEventListener(player, KeyUpEvent::KEY_UP_EVENT_TYPE);
+	mngr.addEventListener(KeyUpEvent::KEY_UP_EVENT_TYPE, player);
 	mngr.dispatchEvent(new KeyUpEvent(38));	// 38 == up arrow
 	mngr.update();
+	/*
+	Player player2;
 
+	if (player == player2)
+	{
+		std::cout << "true";
+	}
+	*/
 	return 0;
 }

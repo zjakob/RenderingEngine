@@ -2,23 +2,43 @@
 
 #include <iostream>
 
-#include "..\EventSystem\Event\KeyUpEvent.h"
 
-
-void Player::processEvent(Event* event)
+Player::Player()
 {
-	if (KeyUpEvent* keyUpEvent = dynamic_cast<KeyUpEvent*>(event))
+	name = "player";
+}
+
+void Player::handleEvent(KeyUpEvent& event)
+{
+	switch (event.getKey())
 	{
-		switch (keyUpEvent->getKey())
-		{
-		case 38:	// up arrow
-			moveUp();
-			break;
-		}
+	case 38:	// up arrow
+		moveUp();
+		break;
+	}
+}
+
+void Player::handleEvent(KeyDownEvent& event)
+{
+	switch (event.getKey())
+	{
+	case 40:	// up arrow
+		moveDown();
+		break;
 	}
 }
 
 void Player::moveUp()
 {
 	std::cout << "player moves up" << std::endl;
+}
+
+void Player::moveDown()
+{
+	std::cout << "player moves down" << std::endl;
+}
+
+const std::string& Player::getName() const
+{
+	return name;
 }

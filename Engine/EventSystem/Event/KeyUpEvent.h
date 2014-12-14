@@ -11,6 +11,7 @@ public:
 	static const std::string KEY_UP_EVENT_TYPE;
 
 	KeyUpEvent(char key);
+
 	char getKey() { return key; }
 
 private:

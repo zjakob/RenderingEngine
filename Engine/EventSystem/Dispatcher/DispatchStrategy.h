@@ -8,8 +8,7 @@ class DispatchStrategy
 {
 public:
 	virtual void dispatchEvent(Event* event) = 0;
-	virtual void update() = 0;
-	virtual void setListenerStrategy(ListenerStrategy& listenerStrategy) = 0;
+	virtual void update(ListenerStrategy& listenerStrategy) = 0;
 };
 
 #endif

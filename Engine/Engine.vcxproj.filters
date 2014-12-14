@@ -14,14 +14,17 @@
     <ClCompile Include="EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClCompile>
-    <ClCompile Include="EventSystem\Listener\KeyEventListener.cpp">
-      <Filter>EventSystem\Listener</Filter>
+    <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
+      <Filter>EventSystem\Listener\Strategy</Filter>
     </ClCompile>
     <ClCompile Include="EventSystem\Listener\EventListener.cpp">
       <Filter>EventSystem\Listener</Filter>
     </ClCompile>
-    <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
-      <Filter>EventSystem\Listener\Strategy</Filter>
+    <ClCompile Include="EventSystem\Listener\KeyEventListener.cpp">
+      <Filter>EventSystem\Listener</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem\Event\KeyDownEvent.cpp">
+      <Filter>EventSystem\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +66,6 @@
     <ClInclude Include="EventSystem\Dispatcher\QueuedDispatchStrategy.h">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Listener\KeyEventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
     <ClInclude Include="EventSystem\Listener\EventListener.h">
       <Filter>EventSystem\Listener</Filter>
     </ClInclude>
@@ -74,6 +74,12 @@
     </ClInclude>
     <ClInclude Include="EventSystem\Listener\Strategy\ListenerStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\KeyEventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Event\KeyDownEvent.h">
+      <Filter>EventSystem\Event</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
