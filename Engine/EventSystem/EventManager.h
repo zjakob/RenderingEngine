@@ -33,7 +33,11 @@ public:
 		dispatchStrategy->update(*(listenerStrategy.get()));
 	};
 	inline void dispatchEvent(Event* event) { dispatchStrategy->dispatchEvent(event); }
-	inline void addEventListener(std::string eventType, EventListener<Event>* listener) { listenerStrategy->addListener(eventType, listener); };
+
+	inline void addEventListener(std::string eventType, void* listener)
+	{
+		listenerStrategy->addListener(eventType, reinterpret_cast<EventListener<Event>*>(listener));
+	};
 
 private:
 	// using references as member variables can cause issues when copying an object.

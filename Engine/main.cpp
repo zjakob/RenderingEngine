@@ -7,6 +7,8 @@
 #include ".\EventSystem\Dispatcher\QueuedDispatchStrategy.h"
 #include ".\EventSystem\Listener\Strategy\SaveListenerStrategy.h"
 
+#include ".\EventSystem\Listener\EventListener.h"
+
 using namespace std;
 
 int main()
