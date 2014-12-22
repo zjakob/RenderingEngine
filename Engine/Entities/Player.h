@@ -1,18 +1,19 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "IEntity.h"
 #include "..\EventSystem\Listener\EventListener.h"
-#include "..\EventSystem\Event\KeyUpEvent.h"
 #include "..\EventSystem\Event\KeyDownEvent.h"
+#include "..\EventSystem\Event\EntityMovedEvent.h"
 
-class Player : public EventListener<KeyUpEvent>, EventListener<KeyDownEvent>
+class Player : public IEntity, EventListener<KeyDownEvent>, EventListener<EntityMovedEvent>
 {
 public:
-	Player();
+	Player(std::string name);
 
-	virtual void handleEvent(KeyUpEvent& event);
+	virtual const std::string& getId() const;
 	virtual void handleEvent(KeyDownEvent& event);
-	virtual const std::string& getName() const;
+	virtual void handleEvent(EntityMovedEvent& event);
 
 private:
 	std::string name;

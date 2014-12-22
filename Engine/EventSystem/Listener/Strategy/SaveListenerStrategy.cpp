@@ -1,6 +1,6 @@
 #include "SaveListenerStrategy.h"
 
-void SaveListenerStrategy::addListener(std::string eventName, EventListener<Event>* listener)
+void SaveListenerStrategy::addListener(std::string eventName, std::function<void(Event&)> listener)
 {
 	auto listenerList = listeners.find(eventName);
 
@@ -10,17 +10,16 @@ void SaveListenerStrategy::addListener(std::string eventName, EventListener<Even
 	}
 	else // no listeners found, add new list
 	{
-		std::list<EventListener<Event>*> newListenerList{ listener };
+		std::list<std::function<void(Event&)>> newListenerList{ listener };
 		auto pairtest = std::make_pair(eventName, newListenerList);
 
 		listeners.insert(pairtest);
 	}
 }
 
-void SaveListenerStrategy::removeListener(std::string eventName, EventListener<Event>* listener)
+void SaveListenerStrategy::removeListener(std::string eventName, std::function<void(Event&)> listener)
 {
-	auto listenerList = listeners.find(eventName);
-	listenerList->second.remove(listener);
+	// not really working at the moment
 }
 
 void SaveListenerStrategy::fireEvent(Event& event)
@@ -31,7 +30,7 @@ void SaveListenerStrategy::fireEvent(Event& event)
 	{		
 		for (auto listener : listenerList->second)
 		{
-			listener->handleEvent(event);
+			listener(event);
 		}
 	}
 }

@@ -9,17 +9,14 @@
 class QueuedDispatchStrategy : public DispatchStrategy
 {
 public:
-	QueuedDispatchStrategy() : 
-		eventList(new std::list<std::unique_ptr<Event>>()), 
-		eventListForUpdate(new std::list<std::unique_ptr<Event>>())
+	QueuedDispatchStrategy()
 	{ }
 
 	virtual void dispatchEvent(Event* event);
 	virtual void update(ListenerStrategy& listenerStrategy);
 
 private:
-	std::list<std::unique_ptr<Event>>* eventList;
-	std::list<std::unique_ptr<Event>>* eventListForUpdate;
+	std::list<std::unique_ptr<Event>> eventList;
 };
 
 #endif

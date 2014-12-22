@@ -8,22 +8,22 @@
     <ClCompile Include="EventSystem\EventManager.cpp">
       <Filter>EventSystem</Filter>
     </ClCompile>
-    <ClCompile Include="EventSystem\Event\KeyUpEvent.cpp">
-      <Filter>EventSystem\Event</Filter>
-    </ClCompile>
     <ClCompile Include="EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClCompile>
     <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
       <Filter>EventSystem\Listener\Strategy</Filter>
     </ClCompile>
+    <ClCompile Include="EventSystem\Event\KeyDownEvent.cpp">
+      <Filter>EventSystem\Event</Filter>
+    </ClCompile>
     <ClCompile Include="EventSystem\Listener\EventListener.cpp">
       <Filter>EventSystem\Listener</Filter>
     </ClCompile>
-    <ClCompile Include="EventSystem\Listener\KeyEventListener.cpp">
+    <ClCompile Include="EventSystem\Listener\KeyDownEventListener.cpp">
       <Filter>EventSystem\Listener</Filter>
     </ClCompile>
-    <ClCompile Include="EventSystem\Event\KeyDownEvent.cpp">
+    <ClCompile Include="EventSystem\Event\EntityMovedEvent.cpp">
       <Filter>EventSystem\Event</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,9 +54,6 @@
     <ClInclude Include="EventSystem\EventManager.h">
       <Filter>EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Event\KeyUpEvent.h">
-      <Filter>EventSystem\Event</Filter>
-    </ClInclude>
     <ClInclude Include="EventSystem\Event\Event.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
@@ -66,20 +63,26 @@
     <ClInclude Include="EventSystem\Dispatcher\QueuedDispatchStrategy.h">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Listener\EventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
     <ClInclude Include="EventSystem\Listener\Strategy\SaveListenerStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
     </ClInclude>
     <ClInclude Include="EventSystem\Listener\Strategy\ListenerStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Listener\KeyEventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
     <ClInclude Include="EventSystem\Event\KeyDownEvent.h">
       <Filter>EventSystem\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\EventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Listener\KeyDownEventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\Event\EntityMovedEvent.h">
+      <Filter>EventSystem\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities\IEntity.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

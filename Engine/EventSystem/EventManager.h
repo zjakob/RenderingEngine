@@ -8,8 +8,8 @@
 
 #include ".\Dispatcher\DispatchStrategy.h"
 #include ".\Listener\Strategy\ListenerStrategy.h"
-#include ".\Listener\EventListener.h"
 #include ".\Event\Event.h"
+
 
 class EventManager
 {
@@ -29,11 +29,24 @@ public:
 		assert(listenerStrategy != nullptr);
 	}
 
-	inline void update() { 
+	inline void update() 
+	{ 
 		dispatchStrategy->update(*(listenerStrategy.get()));
+	}
+
+	inline void dispatchEvent(Event* event) 
+	{ 
+		dispatchStrategy->dispatchEvent(event); 
+	}
+
+	template<typename T1, typename T2>
+	inline void addEventListener(std::string eventType, T1 callbackFct, T2* listenerObj) 
+	{
+		//void (T2::*eventCallbackFct)(Event&) = (void (T2::*)(Event&)) (callbackFct);
+		auto eventCallbackFct = reinterpret_cast<void (T2::*)(Event&)>(callbackFct);
+
+		listenerStrategy->addListener(eventType, std::bind(eventCallbackFct, listenerObj, std::placeholders::_1));
 	};
-	inline void dispatchEvent(Event* event) { dispatchStrategy->dispatchEvent(event); }
-	inline void addEventListener(std::string eventType, EventListener<Event>* listener) { listenerStrategy->addListener(eventType, listener); };
 
 private:
 	// using references as member variables can cause issues when copying an object.

@@ -67,23 +67,24 @@
     <ClCompile Include="Entities\Player.cpp" />
     <ClCompile Include="EventSystem\Dispatcher\QueueDispatchStrategy.cpp" />
     <ClCompile Include="EventSystem\EventManager.cpp" />
+    <ClCompile Include="EventSystem\Event\EntityMovedEvent.cpp" />
     <ClCompile Include="EventSystem\Event\KeyDownEvent.cpp" />
-    <ClCompile Include="EventSystem\Event\KeyUpEvent.cpp" />
     <ClCompile Include="EventSystem\Listener\EventListener.cpp" />
-    <ClCompile Include="EventSystem\Listener\KeyEventListener.cpp" />
+    <ClCompile Include="EventSystem\Listener\KeyDownEventListener.cpp" />
     <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entities\IEntity.h" />
     <ClInclude Include="Entities\Player.h" />
     <ClInclude Include="EventSystem\Dispatcher\DispatchStrategy.h" />
     <ClInclude Include="EventSystem\Dispatcher\QueuedDispatchStrategy.h" />
     <ClInclude Include="EventSystem\EventManager.h" />
+    <ClInclude Include="EventSystem\Event\EntityMovedEvent.h" />
     <ClInclude Include="EventSystem\Event\Event.h" />
     <ClInclude Include="EventSystem\Event\KeyDownEvent.h" />
-    <ClInclude Include="EventSystem\Event\KeyUpEvent.h" />
     <ClInclude Include="EventSystem\Listener\EventListener.h" />
-    <ClInclude Include="EventSystem\Listener\KeyEventListener.h" />
+    <ClInclude Include="EventSystem\Listener\KeyDownEventListener.h" />
     <ClInclude Include="EventSystem\Listener\Strategy\ListenerStrategy.h" />
     <ClInclude Include="EventSystem\Listener\Strategy\SaveListenerStrategy.h" />
   </ItemGroup>
