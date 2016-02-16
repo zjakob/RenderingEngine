@@ -12,7 +12,7 @@ public:
 	QueuedDispatchStrategy()
 	{ }
 
-	virtual void dispatchEvent(Event* event);
+	virtual void dispatchEvent(std::unique_ptr<Event> event);
 	virtual void update(ListenerStrategy& listenerStrategy);
 
 private:

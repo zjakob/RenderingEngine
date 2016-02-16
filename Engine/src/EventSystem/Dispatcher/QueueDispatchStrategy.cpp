@@ -1,9 +1,9 @@
 #include "QueuedDispatchStrategy.h"
 #include <vector>
 
-void QueuedDispatchStrategy::dispatchEvent(Event* event)
+void QueuedDispatchStrategy::dispatchEvent(std::unique_ptr<Event> event)
 {
-	eventList.push_back(std::unique_ptr<Event>(event));
+	eventList.push_back(std::move(event));
 }
 
 void QueuedDispatchStrategy::update(ListenerStrategy& listenerStrategy)

@@ -1,88 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Entities\Player.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\EventManager.cpp">
-      <Filter>EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
-      <Filter>EventSystem\Dispatcher</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
-      <Filter>EventSystem\Listener\Strategy</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Event\KeyDownEvent.cpp">
-      <Filter>EventSystem\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Listener\EventListener.cpp">
-      <Filter>EventSystem\Listener</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Listener\KeyDownEventListener.cpp">
-      <Filter>EventSystem\Listener</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem\Event\EntityMovedEvent.cpp">
-      <Filter>EventSystem\Event</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Entities">
-      <UniqueIdentifier>{3f49f910-dcdd-4651-9f18-41ee5c37f51d}</UniqueIdentifier>
+      <UniqueIdentifier>{02dcb4f4-a01e-426e-9f20-5e873ed8bcf9}</UniqueIdentifier>
     </Filter>
     <Filter Include="EventSystem">
-      <UniqueIdentifier>{218d4bda-6151-49b1-adf6-50778e01e37a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="EventSystem\Event">
-      <UniqueIdentifier>{a9d21328-89dd-42c2-b87e-6404252c76d0}</UniqueIdentifier>
+      <UniqueIdentifier>{b1dffb43-5960-46cf-8483-bd704b1578ce}</UniqueIdentifier>
     </Filter>
     <Filter Include="EventSystem\Dispatcher">
-      <UniqueIdentifier>{3183890c-c9b6-452a-b5e9-1959beac18a3}</UniqueIdentifier>
+      <UniqueIdentifier>{d08086dc-596c-4e2e-8c01-b3259f560715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem\Event">
+      <UniqueIdentifier>{b7c8a305-4ce4-4ab2-85b1-a9937b034857}</UniqueIdentifier>
     </Filter>
     <Filter Include="EventSystem\Listener">
-      <UniqueIdentifier>{962f90b5-fe2f-401c-96b6-ba79041faa5b}</UniqueIdentifier>
+      <UniqueIdentifier>{49578320-9960-47e3-ba58-20f0b86ea659}</UniqueIdentifier>
     </Filter>
     <Filter Include="EventSystem\Listener\Strategy">
-      <UniqueIdentifier>{1470be20-917e-49a1-8c05-6df7e20d6288}</UniqueIdentifier>
+      <UniqueIdentifier>{7099c7ba-3573-4a9f-a160-795fba95c022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material">
+      <UniqueIdentifier>{c3db135c-3339-4af7-b770-81d181cfcc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material\Shader">
+      <UniqueIdentifier>{008704d2-33ec-4d5d-8095-4c378f02295e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material\Shader\Glsl">
+      <UniqueIdentifier>{6a4ac642-8e6d-4f16-be62-fe18dd01c968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{4e5dfcf5-c69c-43db-a94c-77733fc946bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\ioHelper">
+      <UniqueIdentifier>{9e7500fe-9ce4-4c36-b8c6-593faba38a9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\Math">
+      <UniqueIdentifier>{6702660d-2607-4b47-b2d4-874c00d1895e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\ShaderHelper">
+      <UniqueIdentifier>{1329693e-b394-4b6e-9d09-2de6859ff437}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entities\Player.h">
+    <ClInclude Include="src\Entities\IEntity.h">
       <Filter>Entities</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\EventManager.h">
+    <ClInclude Include="src\Entities\Player.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\EventManager.h">
       <Filter>EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Event\Event.h">
-      <Filter>EventSystem\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\Dispatcher\DispatchStrategy.h">
+    <ClInclude Include="src\EventSystem\Dispatcher\QueuedDispatchStrategy.h">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Dispatcher\QueuedDispatchStrategy.h">
+    <ClInclude Include="src\EventSystem\Dispatcher\DispatchStrategy.h">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Listener\Strategy\SaveListenerStrategy.h">
-      <Filter>EventSystem\Listener\Strategy</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\Listener\Strategy\ListenerStrategy.h">
-      <Filter>EventSystem\Listener\Strategy</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\Event\KeyDownEvent.h">
+    <ClInclude Include="src\EventSystem\Event\Event.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
-    <ClInclude Include="EventSystem\Listener\EventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\Listener\KeyDownEventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\Event\EntityMovedEvent.h">
+    <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\IEntity.h">
+    <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h">
+      <Filter>EventSystem\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Listener\EventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Listener\KeyDownEventListener.h">
+      <Filter>EventSystem\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.h">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Listener\Strategy\ListenerStrategy.h">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\Material.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\Shader\Shader.h">
+      <Filter>Material\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h">
+      <Filter>Material\Shader\Glsl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\ioHelper\ioHelper.h">
+      <Filter>util\ioHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\Math\Matrix.h">
+      <Filter>util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\Math\MathUtil.h">
+      <Filter>util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
+      <Filter>util\ShaderHelper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Entities\Player.cpp">
       <Filter>Entities</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\EventManager.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
+      <Filter>EventSystem\Dispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Event\KeyDownEvent.cpp">
+      <Filter>EventSystem\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Event\EntityMovedEvent.cpp">
+      <Filter>EventSystem\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Listener\KeyDownEventListener.cpp">
+      <Filter>EventSystem\Listener</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Listener\EventListener.cpp">
+      <Filter>EventSystem\Listener</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\Material.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\Shader\Shader.cpp">
+      <Filter>Material\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Material\Shader\Glsl\GlslShader.cpp">
+      <Filter>Material\Shader\Glsl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\ioHelper\ioHelper.cpp">
+      <Filter>util\ioHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\Math\Matrix.cpp">
+      <Filter>util\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
+      <Filter>util\ShaderHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
 </Project>

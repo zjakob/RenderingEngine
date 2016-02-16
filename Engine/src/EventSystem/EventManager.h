@@ -34,9 +34,9 @@ public:
 		dispatchStrategy->update(*(listenerStrategy.get()));
 	}
 
-	inline void dispatchEvent(Event* event) 
+	inline void dispatchEvent(std::unique_ptr<Event> event) 
 	{ 
-		dispatchStrategy->dispatchEvent(event); 
+		dispatchStrategy->dispatchEvent(std::move(event));
 	}
 
 	template<typename T1, typename T2>
