@@ -10,16 +10,24 @@
 
 #include ".\util\ioHelper\ioHelper.h"
 #include ".\util\ShaderHelper\glslHelper.h"
-#include ".\util\Math\Matrix.h"
 #include ".\util\Math\MathUtil.h"
 
+#include "camera\Camera.h"
 
-math::Matrix4x4f* mvMatrix = nullptr;
+#include <glm/vec3.hpp> // glm::vec3
+#include <glm/vec4.hpp> // glm::vec4
+#include <glm/mat4x4.hpp> // glm::mat4
+#include <glm/gtc/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
+#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+
+
+glm::mat4 model = glm::mat4(1.0f);
+Camera cam(glm::vec3(0.0f, 0.0f, 1.0f));
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	if (key == GLFW_KEY_E && action == GLFW_PRESS)
-		mvMatrix->translate(-0.1f, 0.0f, 0.0f);
+		cam.move(-0.1f, 0.0f, 0.0f);
 }
 
 int main(void)
@@ -61,12 +69,9 @@ int main(void)
 	ioHelper::loadFromFile(".\\src\\shaders\\movingtri.fs", &fsSource, fsLen);
 
 	GLuint shader_program = glslHelper::makeShaderProgram(vsSource, vsLen, fsSource, fsLen);
-
-
-	GLint           mv_location;
-	GLint           proj_location;
-	mv_location = glGetUniformLocation(shader_program, "mv_matrix");
-	proj_location = glGetUniformLocation(shader_program, "proj_matrix");
+	
+	GLint           mvp_location;
+	mvp_location = glGetUniformLocation(shader_program, "mvp");
 
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
@@ -126,35 +131,12 @@ int main(void)
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
-	mvMatrix = math::Matrix4x4f::getIdentity();
-	mvMatrix->translate(0.0f, 0.0f, -1.0f);
-	//mvMatrix->transpose();
-	//mvMatrix->rotate(0.0f, 45.0f, 0.0f);
-	math::Matrix4x4f* rot = math::Matrix4x4f::getRotation(0.0f, degreeToRadians(45.0f), 0.0f);
-	//*mvMatrix = *mvMatrix * *rot;
-	math::Matrix4x4f* scale = math::Matrix4x4f::getScale(1.0f, 2.0f, 1.0f);
-	//*mvMatrix = *mvMatrix * *scale * *rot;
 
+	model = glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f));
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
-		/* Render here */
-		math::Matrix4x4f* mvMatrix1 = math::Matrix4x4f::getScale(1.0f, 1.0f, 1.0f);
-		math::Matrix4x4f* mvMatrix2 = math::Matrix4x4f::getIdentity();
-		mvMatrix2->translate(0.0f, 0.0f, -2.0f);
-		//mvMatrix2->translate(2.0f, 3.0f, 4.0f);
-		math::Matrix4x4f mvMatrix3 = *mvMatrix2 * *mvMatrix1;
-		for (int x = 0; x < 4; ++x) {
-			for (int y = 0; y < 4; ++y) {
-				float test1 = mvMatrix1->element(x, y);
-				float test2 = mvMatrix2->element(x, y);
-				float test3 = mvMatrix3.element(x, y);
-				int debug = 0;
-			}
-		}
-
-
 		int i;
 		static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
 		static const GLfloat one = 1.0f;
@@ -165,13 +147,11 @@ int main(void)
 
 		glUseProgram(shader_program);
 
-		math::Matrix4x4f* perspectiveMatrix = math::Matrix4x4f::getPerspective(50.0f, (float)800 / (float)800, 0.1f, 1000.0f);
-		glUniformMatrix4fv(proj_location, 1, GL_FALSE, *perspectiveMatrix);
-
 		double currentTime = 1.0;
 		float f = (float)currentTime * 0.3f;
-		
-		glUniformMatrix4fv(mv_location, 1, GL_FALSE, *mvMatrix);
+
+		glm::mat4 MVP = cam.getMvMatrix() * model;
+		glUniformMatrix4fv(mvp_location, 1, GL_FALSE, glm::value_ptr(MVP));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
 
 

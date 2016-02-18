@@ -72,9 +72,6 @@
     <ClInclude Include="src\EventSystem\Listener\KeyDownEventListener.h">
       <Filter>EventSystem\Listener</Filter>
     </ClInclude>
-    <ClInclude Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.h">
-      <Filter>EventSystem\Listener\Strategy</Filter>
-    </ClInclude>
     <ClInclude Include="src\EventSystem\Listener\Strategy\ListenerStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
     </ClInclude>
@@ -90,14 +87,14 @@
     <ClInclude Include="src\util\ioHelper\ioHelper.h">
       <Filter>util\ioHelper</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Math\Matrix.h">
-      <Filter>util\Math</Filter>
-    </ClInclude>
     <ClInclude Include="src\util\Math\MathUtil.h">
       <Filter>util\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
       <Filter>util\ShaderHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.h">
+      <Filter>EventSystem\Listener\Strategy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +119,6 @@
     <ClCompile Include="src\EventSystem\Listener\EventListener.cpp">
       <Filter>EventSystem\Listener</Filter>
     </ClCompile>
-    <ClCompile Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.cpp">
-      <Filter>EventSystem\Listener\Strategy</Filter>
-    </ClCompile>
     <ClCompile Include="src\Material\Material.cpp">
       <Filter>Material</Filter>
     </ClCompile>
@@ -137,12 +131,12 @@
     <ClCompile Include="src\util\ioHelper\ioHelper.cpp">
       <Filter>util\ioHelper</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\Math\Matrix.cpp">
-      <Filter>util\Math</Filter>
-    </ClCompile>
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
       <Filter>util\ShaderHelper</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.cpp">
+      <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

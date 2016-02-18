@@ -5,7 +5,7 @@
 #include ".\EventSystem\EventManager.h"
 #include ".\Entities\Player.h"
 #include ".\EventSystem\Dispatcher\QueuedDispatchStrategy.h"
-#include ".\EventSystem\Listener\Strategy\SaveListenerStrategy.h"
+#include ".\EventSystem\Listener\Strategy\SafeListenerStrategy.h"
 #include ".\EventSystem\Event\KeyDownEvent.h"
 
 using namespace std;
@@ -14,7 +14,7 @@ int main()
 {
 	cout << "--- Event System ---" << endl;
 
-	EventManager mngr(new QueuedDispatchStrategy(), new SaveListenerStrategy());
+	EventManager mngr(new QueuedDispatchStrategy(), new SafeListenerStrategy());
 	Player* player = new Player("player");
 
 	mngr.addEventListener(KeyDownEvent::KEY_DOWN_EVENT_TYPE, static_cast<void (Player::*)(KeyDownEvent&)>(&Player::handleEvent), player);

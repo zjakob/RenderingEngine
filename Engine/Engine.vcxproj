@@ -22,13 +22,12 @@
     <ClInclude Include="src\EventSystem\Listener\EventListener.h" />
     <ClInclude Include="src\EventSystem\Listener\KeyDownEventListener.h" />
     <ClInclude Include="src\EventSystem\Listener\Strategy\ListenerStrategy.h" />
-    <ClInclude Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.h" />
+    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.h" />
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h" />
     <ClInclude Include="src\Material\Shader\Shader.h" />
     <ClInclude Include="src\util\ioHelper\ioHelper.h" />
     <ClInclude Include="src\util\Math\MathUtil.h" />
-    <ClInclude Include="src\util\Math\Matrix.h" />
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
   <ItemGroup>
@@ -39,13 +38,12 @@
     <ClCompile Include="src\EventSystem\Event\KeyDownEvent.cpp" />
     <ClCompile Include="src\EventSystem\Listener\EventListener.cpp" />
     <ClCompile Include="src\EventSystem\Listener\KeyDownEventListener.cpp" />
-    <ClCompile Include="src\EventSystem\Listener\Strategy\SaveListenerStrategy.cpp" />
+    <ClCompile Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Material\Material.cpp" />
     <ClCompile Include="src\Material\Shader\Glsl\GlslShader.cpp" />
     <ClCompile Include="src\Material\Shader\Shader.cpp" />
     <ClCompile Include="src\util\ioHelper\ioHelper.cpp" />
-    <ClCompile Include="src\util\Math\Matrix.cpp" />
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
