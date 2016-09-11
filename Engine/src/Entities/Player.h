@@ -2,18 +2,17 @@
 #define PLAYER_H
 
 #include "IEntity.h"
-#include "..\EventSystem\Listener\EventListener.h"
 #include "..\EventSystem\Event\KeyDownEvent.h"
 #include "..\EventSystem\Event\EntityMovedEvent.h"
 
-class Player : public IEntity, EventListener<KeyDownEvent>, EventListener<EntityMovedEvent>
+class Player : public IEntity
 {
 public:
 	Player(std::string name);
 
+	virtual void handleKeyDownEvent(KeyDownEvent& event);
+
 	virtual const std::string& getId() const;
-	virtual void handleEvent(KeyDownEvent& event);
-	virtual void handleEvent(EntityMovedEvent& event);
 
 private:
 	std::string name;
@@ -22,4 +21,4 @@ private:
 	void moveDown();
 };
 
-#endif
+#endif // PLAYER_H

@@ -17,4 +17,4 @@ private:
 	char key;
 };
 
-#endif
+#endif // ENTITY_MOVED_EVENT_H

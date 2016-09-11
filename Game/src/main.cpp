@@ -8,10 +8,21 @@
 
 #include <iostream>
 
+#include <memory>
+
 #include ".\util\ioHelper\ioHelper.h"
 #include ".\util\ShaderHelper\glslHelper.h"
 #include ".\util\Math\MathUtil.h"
 
+//#include <EventSystem\EventSystem.h>
+#include <EventSystem\EventManager.h>
+#include <EventSystem\Dispatcher\QueuedEventDispatchStrategy.h>
+#include <EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h>
+#include <EventSystem\Event\KeyDownEvent.h>
+
+#include <util\keyboardHelper.h>
+
+#include "camera\Camera.h"
 #include "camera\Camera.h"
 
 #include <glm/vec3.hpp> // glm::vec3
@@ -20,18 +31,45 @@
 #include <glm/gtc/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
+EventManager<
+	KeyDownEvent,
+	SafeEventCallbackStrategy<KeyDownEvent>,
+	QueuedEventDispatchStrategy<KeyDownEvent, SafeEventCallbackStrategy<KeyDownEvent> > > keyDownManager;
 
 glm::mat4 model = glm::mat4(1.0f);
 Camera cam(glm::vec3(0.0f, 0.0f, 1.0f));
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (key == GLFW_KEY_E && action == GLFW_PRESS)
-		cam.move(-0.1f, 0.0f, 0.0f);
+	if (action == GLFW_PRESS)
+	{
+		keyboardHelper::KeyboardKey pressedKey;
+		switch (key)
+		{
+		case GLFW_KEY_A:
+			pressedKey = keyboardHelper::KeyboardKey::a;
+			break;
+		case GLFW_KEY_S:
+			pressedKey = keyboardHelper::KeyboardKey::s;
+			break;
+		case GLFW_KEY_D:
+			pressedKey = keyboardHelper::KeyboardKey::d;
+			break;
+		case GLFW_KEY_W:
+			pressedKey = keyboardHelper::KeyboardKey::w;
+			break;
+		default:
+			break;
+		}
+
+		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(pressedKey));
+	}
 }
 
 int main(void)
 {
+	keyDownManager.addEventCallback<KeyDownEvent>(std::bind(&Camera::handleKeyDownEvent, &cam, std::placeholders::_1));
+
 	GLFWwindow* window;
 
 	if (!glfwInit())
@@ -160,6 +198,8 @@ int main(void)
 
 		/* Poll for and process events */
 		glfwPollEvents();
+
+		keyDownManager.update();
 	}
 
 	glDeleteVertexArrays(1, &vao);

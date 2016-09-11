@@ -3,10 +3,9 @@
 
 #include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
-#include <EventSystem\Listener\EventListener.h>
 #include <EventSystem\Event\KeyDownEvent.h>
 
-class Camera : EventListener<KeyDownEvent>
+class Camera
 {
 
 public:
@@ -14,7 +13,7 @@ public:
 
 	glm::mat4 getMvMatrix();
 
-	void move(float x, float y, float z);
+	void handleKeyDownEvent(KeyDownEvent& e);
 
 private:
 	glm::vec3 position;
@@ -25,6 +24,7 @@ private:
 	float near;
 	float far;
 
+	void move(float x, float y, float z);
 };
 
-#endif
+#endif // CAMERA_H

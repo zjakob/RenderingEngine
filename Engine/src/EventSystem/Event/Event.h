@@ -5,19 +5,22 @@
 
 class Event
 {
+private:
+	static int idCnt;
+
 public:
-	Event(std::string eventName) : eventName(eventName)
+	Event() : id(idCnt++)
 	{
 	}
 
-	virtual const std::string& getEventName()
+	virtual int eventId() const
 	{
-		return eventName;
+		return id;
 	}
 
 protected:
-	std::string eventName;
+	const int id;
 
 };
 
-#endif
+#endif // EVENT_H

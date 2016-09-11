@@ -9,21 +9,13 @@ Player::Player(std::string name)
 	this->name = name;
 }
 
-void Player::handleEvent(KeyDownEvent& event)
+void Player::handleKeyDownEvent(KeyDownEvent& event)
 {
 	switch (event.getKey())
 	{
-	case 38:	// up arrow
-		moveUp();
-		break;
-	case 40:	// up arrow
-		moveDown();
+	default:
 		break;
 	}
-}
-
-void Player::handleEvent(EntityMovedEvent& event)
-{
 }
 
 void Player::moveUp()

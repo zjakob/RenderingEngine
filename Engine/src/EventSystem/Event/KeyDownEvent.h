@@ -3,19 +3,24 @@
 
 #include <string>
 
+#include "..\..\util\keyboardHelper.h"
+
 #include "Event.h"
 
 class KeyDownEvent : public Event
 {
 public:
-	static const std::string KEY_DOWN_EVENT_TYPE;
 
-	KeyDownEvent(char key);
+	KeyDownEvent(keyboardHelper::KeyboardKey key) 
+		: key(key)
+	{
 
-	char getKey() { return key; }
+	}
+
+	keyboardHelper::KeyboardKey getKey() { return key; }
 
 private:
-	char key;
+	keyboardHelper::KeyboardKey key;
 };
 
-#endif
+#endif // KEY_DOWN_EVENT_H

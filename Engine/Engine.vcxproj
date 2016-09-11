@@ -13,33 +13,26 @@
   <ItemGroup>
     <ClInclude Include="src\Entities\IEntity.h" />
     <ClInclude Include="src\Entities\Player.h" />
-    <ClInclude Include="src\EventSystem\Dispatcher\DispatchStrategy.h" />
-    <ClInclude Include="src\EventSystem\Dispatcher\QueuedDispatchStrategy.h" />
+    <ClInclude Include="src\EventSystem\Dispatcher\QueuedEventDispatchStrategy.h" />
     <ClInclude Include="src\EventSystem\EventManager.h" />
+    <ClInclude Include="src\EventSystem\EventSystem.h" />
     <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h" />
     <ClInclude Include="src\EventSystem\Event\Event.h" />
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h" />
-    <ClInclude Include="src\EventSystem\Listener\EventListener.h" />
-    <ClInclude Include="src\EventSystem\Listener\KeyDownEventListener.h" />
-    <ClInclude Include="src\EventSystem\Listener\Strategy\ListenerStrategy.h" />
-    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.h" />
+    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h" />
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h" />
     <ClInclude Include="src\Material\Shader\Shader.h" />
     <ClInclude Include="src\util\ioHelper\ioHelper.h" />
+    <ClInclude Include="src\util\keyboardHelper.h" />
     <ClInclude Include="src\util\Math\MathUtil.h" />
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entities\Player.cpp" />
-    <ClCompile Include="src\EventSystem\Dispatcher\QueueDispatchStrategy.cpp" />
-    <ClCompile Include="src\EventSystem\EventManager.cpp" />
+    <ClCompile Include="src\EventSystem\EventSystem.cpp" />
     <ClCompile Include="src\EventSystem\Event\EntityMovedEvent.cpp" />
-    <ClCompile Include="src\EventSystem\Event\KeyDownEvent.cpp" />
-    <ClCompile Include="src\EventSystem\Listener\EventListener.cpp" />
-    <ClCompile Include="src\EventSystem\Listener\KeyDownEventListener.cpp" />
-    <ClCompile Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\EventSystem\Event\Event.cpp" />
     <ClCompile Include="src\Material\Material.cpp" />
     <ClCompile Include="src\Material\Shader\Glsl\GlslShader.cpp" />
     <ClCompile Include="src\Material\Shader\Shader.cpp" />

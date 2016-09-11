@@ -9,4 +9,4 @@ public:
 	virtual const std::string& getId() const = 0;
 };
 
-#endif
+#endif // ENITY_H

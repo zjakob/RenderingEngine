@@ -51,12 +51,6 @@
     <ClInclude Include="src\EventSystem\EventManager.h">
       <Filter>EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\EventSystem\Dispatcher\QueuedDispatchStrategy.h">
-      <Filter>EventSystem\Dispatcher</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EventSystem\Dispatcher\DispatchStrategy.h">
-      <Filter>EventSystem\Dispatcher</Filter>
-    </ClInclude>
     <ClInclude Include="src\EventSystem\Event\Event.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
@@ -65,15 +59,6 @@
     </ClInclude>
     <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h">
       <Filter>EventSystem\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EventSystem\Listener\EventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EventSystem\Listener\KeyDownEventListener.h">
-      <Filter>EventSystem\Listener</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EventSystem\Listener\Strategy\ListenerStrategy.h">
-      <Filter>EventSystem\Listener\Strategy</Filter>
     </ClInclude>
     <ClInclude Include="src\Material\Material.h">
       <Filter>Material</Filter>
@@ -93,31 +78,25 @@
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
       <Filter>util\ShaderHelper</Filter>
     </ClInclude>
-    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.h">
+    <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\Dispatcher\QueuedEventDispatchStrategy.h">
+      <Filter>EventSystem\Dispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\EventSystem.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\keyboardHelper.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entities\Player.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
-    <ClCompile Include="src\EventSystem\EventManager.cpp">
-      <Filter>EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EventSystem\Dispatcher\QueueDispatchStrategy.cpp">
-      <Filter>EventSystem\Dispatcher</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EventSystem\Event\KeyDownEvent.cpp">
-      <Filter>EventSystem\Event</Filter>
-    </ClCompile>
     <ClCompile Include="src\EventSystem\Event\EntityMovedEvent.cpp">
       <Filter>EventSystem\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EventSystem\Listener\KeyDownEventListener.cpp">
-      <Filter>EventSystem\Listener</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EventSystem\Listener\EventListener.cpp">
-      <Filter>EventSystem\Listener</Filter>
     </ClCompile>
     <ClCompile Include="src\Material\Material.cpp">
       <Filter>Material</Filter>
@@ -134,9 +113,11 @@
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
       <Filter>util\ShaderHelper</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\EventSystem\Listener\Strategy\SafeListenerStrategy.cpp">
-      <Filter>EventSystem\Listener\Strategy</Filter>
+    <ClCompile Include="src\EventSystem\EventSystem.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\Event\Event.cpp">
+      <Filter>EventSystem\Event</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

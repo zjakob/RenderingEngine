@@ -2,3 +2,5 @@ tmp
 build
 /Engine.sdf
 /Engine.VC.opendb
+
+.vs/Engine/v14/.suo
