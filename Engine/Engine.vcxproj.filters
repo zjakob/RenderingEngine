@@ -90,6 +90,9 @@
     <ClInclude Include="src\util\keyboardHelper.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h">
+      <Filter>EventSystem\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entities\Player.cpp">

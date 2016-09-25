@@ -11,16 +11,18 @@ class KeyDownEvent : public Event
 {
 public:
 
-	KeyDownEvent(keyboardHelper::KeyboardKey key) 
-		: key(key)
+	KeyDownEvent(const float deltaTime, const keyboardHelper::KeyboardKey key)
+		: deltaTime(deltaTime), key(key)
 	{
 
 	}
 
-	keyboardHelper::KeyboardKey getKey() { return key; }
+	const keyboardHelper::KeyboardKey getKey() { return key; }
+	const float getDeltaTime() { return deltaTime; }
 
 private:
-	keyboardHelper::KeyboardKey key;
+	const keyboardHelper::KeyboardKey key;
+	const float deltaTime;
 };
 
 #endif // KEY_DOWN_EVENT_H

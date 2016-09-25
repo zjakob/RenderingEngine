@@ -19,58 +19,94 @@
 #include <EventSystem\Dispatcher\QueuedEventDispatchStrategy.h>
 #include <EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h>
 #include <EventSystem\Event\KeyDownEvent.h>
+#include <EventSystem\Event\MouseMoveEvent.h>
 
 #include <util\keyboardHelper.h>
 
 #include "camera\Camera.h"
 #include "camera\Camera.h"
 
-#include <glm/vec3.hpp> // glm::vec3
-#include <glm/vec4.hpp> // glm::vec4
-#include <glm/mat4x4.hpp> // glm::mat4
-#include <glm/gtc/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
-#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+#include <glm\vec3.hpp> // glm::vec3
+#include <glm\gtc\matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
+#include <glm\gtc\type_ptr.hpp> // glm::value_ptr
+
+
+double lastTime;
+double currentTime;
+float deltaTime;
+
+GLFWwindow* window;
+constexpr int windowWidth = 800.0f;
+constexpr int windowHeight = 600.0f;
+constexpr float screenCenterX = windowWidth / 2.0f;
+constexpr float screenCenterY = windowHeight / 2.0f;
 
 EventManager<
 	KeyDownEvent,
 	SafeEventCallbackStrategy<KeyDownEvent>,
 	QueuedEventDispatchStrategy<KeyDownEvent, SafeEventCallbackStrategy<KeyDownEvent> > > keyDownManager;
 
-glm::mat4 model = glm::mat4(1.0f);
-Camera cam(glm::vec3(0.0f, 0.0f, 1.0f));
+EventManager<
+	MouseMoveEvent,
+	SafeEventCallbackStrategy<MouseMoveEvent>,
+	QueuedEventDispatchStrategy<MouseMoveEvent, SafeEventCallbackStrategy<MouseMoveEvent> > > mouseMoveManager;
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+glm::mat4 modelMat = glm::mat4(1.0f);
+Camera cam(glm::vec3(0.0f, 0.0f, 1.0f), windowWidth / windowHeight, 90.0f);
+
+bool keys[1024];
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (action == GLFW_PRESS)
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key >= 0 && key < 1024)
 	{
-		keyboardHelper::KeyboardKey pressedKey;
-		switch (key)
-		{
-		case GLFW_KEY_A:
-			pressedKey = keyboardHelper::KeyboardKey::a;
-			break;
-		case GLFW_KEY_S:
-			pressedKey = keyboardHelper::KeyboardKey::s;
-			break;
-		case GLFW_KEY_D:
-			pressedKey = keyboardHelper::KeyboardKey::d;
-			break;
-		case GLFW_KEY_W:
-			pressedKey = keyboardHelper::KeyboardKey::w;
-			break;
-		default:
-			break;
-		}
-
-		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(pressedKey));
+		if (action == GLFW_PRESS)
+			keys[key] = true;
+		else if (action == GLFW_RELEASE)
+			keys[key] = false;
 	}
+}
+void do_movement()
+{
+	keyboardHelper::KeyboardKey pressedKey;
+	if (keys[GLFW_KEY_W]) 
+	{
+		pressedKey = keyboardHelper::KeyboardKey::w;
+		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(deltaTime, pressedKey));
+	}
+	if (keys[GLFW_KEY_S]) {
+		pressedKey = keyboardHelper::KeyboardKey::s;
+		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(deltaTime, pressedKey));
+	}
+	if (keys[GLFW_KEY_A])
+	{
+		pressedKey = keyboardHelper::KeyboardKey::a;
+		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(deltaTime, pressedKey));
+	}
+	if (keys[GLFW_KEY_D]) {
+		pressedKey = keyboardHelper::KeyboardKey::d;
+		keyDownManager.dispatchEvent(std::make_unique<KeyDownEvent>(deltaTime, pressedKey));
+	}
+}
+
+static void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	double deltaX = screenCenterX - xpos;
+	double deltaY = screenCenterY - ypos;
+	mouseMoveManager.dispatchEvent(std::make_unique<MouseMoveEvent>(deltaTime, deltaX, deltaY));
+	// reset mouse to center of screen
+	// requires: glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPos(window, screenCenterX, screenCenterY);
 }
 
 int main(void)
 {
 	keyDownManager.addEventCallback<KeyDownEvent>(std::bind(&Camera::handleKeyDownEvent, &cam, std::placeholders::_1));
+	mouseMoveManager.addEventCallback<MouseMoveEvent>(std::bind(&Camera::handleMouseMoveEvent, &cam, std::placeholders::_1));
 
-	GLFWwindow* window;
+	
 
 	if (!glfwInit())
 		return -1;
@@ -82,7 +118,7 @@ int main(void)
 #endif
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(800, 600, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(windowWidth, windowHeight, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -92,6 +128,7 @@ int main(void)
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 	glfwSetKeyCallback(window, key_callback);
+	glfwSetCursorPosCallback(window, cursor_pos_callback);
 
 
 	// init glew
@@ -170,11 +207,30 @@ int main(void)
 	glDepthFunc(GL_LEQUAL);
 
 
-	model = glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f));
+	modelMat = glm::translate(modelMat, glm::vec3(0.0f, 0.0f, -1.0f));
+
+
+	// disable mouse cursor so we can reset it to the center after it moved
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	// set cursor pos to center of screen for mouse movement
+	glfwSetCursorPos(window, screenCenterX, screenCenterY);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
+		currentTime = glfwGetTime();
+		deltaTime = float(currentTime - lastTime);
+		lastTime = currentTime;
+
+
+		/* Poll for and process events */
+		glfwPollEvents();
+		//glfwWaitEvents();
+		do_movement();
+		keyDownManager.update();
+		mouseMoveManager.update();
+
+
 		int i;
 		static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
 		static const GLfloat one = 1.0f;
@@ -188,18 +244,19 @@ int main(void)
 		double currentTime = 1.0;
 		float f = (float)currentTime * 0.3f;
 
-		glm::mat4 MVP = cam.getMvMatrix() * model;
-		glUniformMatrix4fv(mvp_location, 1, GL_FALSE, glm::value_ptr(MVP));
+		glm::mat4 mvpMat = cam.getVpMatrix() * modelMat;
+		glUniformMatrix4fv(mvp_location, 1, GL_FALSE, glm::value_ptr(mvpMat));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
 
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
 
-		/* Poll for and process events */
-		glfwPollEvents();
 
-		keyDownManager.update();
+		// game loop todo:
+		// handle input/update cam
+		// fire events/update scene
+		// render scene
 	}
 
 	glDeleteVertexArrays(1, &vao);

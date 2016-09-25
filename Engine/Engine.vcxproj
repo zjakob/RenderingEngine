@@ -19,6 +19,7 @@
     <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h" />
     <ClInclude Include="src\EventSystem\Event\Event.h" />
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h" />
+    <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h" />
     <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h" />
     <ClInclude Include="src\Material\Material.h" />
     <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h" />
