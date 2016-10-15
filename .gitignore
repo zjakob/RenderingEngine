@@ -4,3 +4,4 @@ build
 /Engine.VC.opendb
 
 .vs/Engine/v14/.suo
+/Engine/Engine.vcxproj.user

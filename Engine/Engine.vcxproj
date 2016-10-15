@@ -11,32 +11,38 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entities\IEntity.h" />
-    <ClInclude Include="src\Entities\Player.h" />
     <ClInclude Include="src\EventSystem\Dispatcher\QueuedEventDispatchStrategy.h" />
     <ClInclude Include="src\EventSystem\EventManager.h" />
-    <ClInclude Include="src\EventSystem\EventSystem.h" />
-    <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h" />
     <ClInclude Include="src\EventSystem\Event\Event.h" />
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h" />
     <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h" />
     <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h" />
-    <ClInclude Include="src\Material\Material.h" />
-    <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h" />
-    <ClInclude Include="src\Material\Shader\Shader.h" />
+    <ClInclude Include="src\Exception\OpenGLException.h" />
+    <ClInclude Include="src\Render\Camera\Camera.h" />
+    <ClInclude Include="src\Render\Geometry\Geometry.h" />
+    <ClInclude Include="src\Render\Material\Material.h" />
+    <ClInclude Include="src\Render\Material\Shader\GlslShaderProgram.h" />
+    <ClInclude Include="src\Render\Renderer\OpenGLRenderer.h" />
+    <ClInclude Include="src\Render\Renderer\RenderWindow.h" />
+    <ClInclude Include="src\Render\Scene\MoveableObject.h" />
+    <ClInclude Include="src\Render\Scene\RenderableObject.h" />
+    <ClInclude Include="src\Render\Scene\SceneManager.h" />
+    <ClInclude Include="src\Render\Scene\SceneNode.h" />
+    <ClInclude Include="src\util\ComparableObject.h" />
     <ClInclude Include="src\util\ioHelper\ioHelper.h" />
-    <ClInclude Include="src\util\keyboardHelper.h" />
-    <ClInclude Include="src\util\Math\MathUtil.h" />
+    <ClInclude Include="src\util\ioHelper\keyboardHelper.h" />
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Entities\Player.cpp" />
-    <ClCompile Include="src\EventSystem\EventSystem.cpp" />
-    <ClCompile Include="src\EventSystem\Event\EntityMovedEvent.cpp" />
     <ClCompile Include="src\EventSystem\Event\Event.cpp" />
-    <ClCompile Include="src\Material\Material.cpp" />
-    <ClCompile Include="src\Material\Shader\Glsl\GlslShader.cpp" />
-    <ClCompile Include="src\Material\Shader\Shader.cpp" />
+    <ClCompile Include="src\Render\Camera\Camera.cpp" />
+    <ClCompile Include="src\Render\Geometry\Geometry.cpp" />
+    <ClCompile Include="src\Render\Material\Material.cpp" />
+    <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp" />
+    <ClCompile Include="src\Render\Renderer\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\Render\Scene\SceneManager.cpp" />
+    <ClCompile Include="src\Render\Scene\SceneNode.cpp" />
+    <ClCompile Include="src\util\ComparableObject.cpp" />
     <ClCompile Include="src\util\ioHelper\ioHelper.cpp" />
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp" />
   </ItemGroup>
@@ -53,7 +59,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -75,12 +81,16 @@
     <OutDir>$(SolutionDir)build\Engine\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)tmp\Engine\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)build\Engine\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\Engine\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\glew-1.13\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\glew-1.13\include;$(SolutionDir)libs\glm-0.9.7.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -100,11 +110,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\glew-1.13\include;$(SolutionDir)libs\glm-0.9.7.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\glew-1.13\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

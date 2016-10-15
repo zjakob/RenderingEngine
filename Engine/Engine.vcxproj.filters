@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Entities">
-      <UniqueIdentifier>{02dcb4f4-a01e-426e-9f20-5e873ed8bcf9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="EventSystem">
       <UniqueIdentifier>{b1dffb43-5960-46cf-8483-bd704b1578ce}</UniqueIdentifier>
     </Filter>
@@ -19,35 +16,41 @@
     <Filter Include="EventSystem\Listener\Strategy">
       <UniqueIdentifier>{7099c7ba-3573-4a9f-a160-795fba95c022}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Material">
-      <UniqueIdentifier>{c3db135c-3339-4af7-b770-81d181cfcc82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Material\Shader">
-      <UniqueIdentifier>{008704d2-33ec-4d5d-8095-4c378f02295e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Material\Shader\Glsl">
-      <UniqueIdentifier>{6a4ac642-8e6d-4f16-be62-fe18dd01c968}</UniqueIdentifier>
-    </Filter>
     <Filter Include="util">
       <UniqueIdentifier>{4e5dfcf5-c69c-43db-a94c-77733fc946bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="util\ioHelper">
       <UniqueIdentifier>{9e7500fe-9ce4-4c36-b8c6-593faba38a9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="util\Math">
-      <UniqueIdentifier>{6702660d-2607-4b47-b2d4-874c00d1895e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="util\ShaderHelper">
       <UniqueIdentifier>{1329693e-b394-4b6e-9d09-2de6859ff437}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{594947c0-8fb5-475c-94e3-f617812ec9d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{280c4c20-f364-45dc-928e-c651eec6300a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Renderer">
+      <UniqueIdentifier>{dc8444b4-477f-4b21-b0cd-5e4fc21aeb8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Camera">
+      <UniqueIdentifier>{cd43ae85-04ef-4512-bd88-07768b02ee17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Material">
+      <UniqueIdentifier>{712b3ca5-1809-4d58-8553-ebe136c290c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Material\Shader">
+      <UniqueIdentifier>{d1741476-873d-412a-b6bd-372277662079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Geometry">
+      <UniqueIdentifier>{0bb45e98-00f6-43a0-a1ba-6fd8cb57dc6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Scene">
+      <UniqueIdentifier>{ffad9554-8302-4200-83cd-57463181e362}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entities\IEntity.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Entities\Player.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
     <ClInclude Include="src\EventSystem\EventManager.h">
       <Filter>EventSystem</Filter>
     </ClInclude>
@@ -57,23 +60,8 @@
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
-    <ClInclude Include="src\EventSystem\Event\EntityMovedEvent.h">
-      <Filter>EventSystem\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Material\Material.h">
-      <Filter>Material</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Material\Shader\Shader.h">
-      <Filter>Material\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Material\Shader\Glsl\GlslShader.h">
-      <Filter>Material\Shader\Glsl</Filter>
-    </ClInclude>
     <ClInclude Include="src\util\ioHelper\ioHelper.h">
       <Filter>util\ioHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="src\util\Math\MathUtil.h">
-      <Filter>util\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
       <Filter>util\ShaderHelper</Filter>
@@ -84,43 +72,82 @@
     <ClInclude Include="src\EventSystem\Dispatcher\QueuedEventDispatchStrategy.h">
       <Filter>EventSystem\Dispatcher</Filter>
     </ClInclude>
-    <ClInclude Include="src\EventSystem\EventSystem.h">
-      <Filter>EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="src\util\keyboardHelper.h">
-      <Filter>util</Filter>
-    </ClInclude>
     <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Exception\OpenGLException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Renderer\OpenGLRenderer.h">
+      <Filter>Render\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Camera\Camera.h">
+      <Filter>Render\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Material\Material.h">
+      <Filter>Render\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Material\Shader\GlslShaderProgram.h">
+      <Filter>Render\Material\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Geometry\Geometry.h">
+      <Filter>Render\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Scene\SceneNode.h">
+      <Filter>Render\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Scene\SceneManager.h">
+      <Filter>Render\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Scene\MoveableObject.h">
+      <Filter>Render\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\ioHelper\keyboardHelper.h">
+      <Filter>util\ioHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Scene\RenderableObject.h">
+      <Filter>Render\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\ComparableObject.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Renderer\RenderWindow.h">
+      <Filter>Render\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Entities\Player.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EventSystem\Event\EntityMovedEvent.cpp">
-      <Filter>EventSystem\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Material\Material.cpp">
-      <Filter>Material</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Material\Shader\Shader.cpp">
-      <Filter>Material\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Material\Shader\Glsl\GlslShader.cpp">
-      <Filter>Material\Shader\Glsl</Filter>
-    </ClCompile>
     <ClCompile Include="src\util\ioHelper\ioHelper.cpp">
       <Filter>util\ioHelper</Filter>
     </ClCompile>
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
       <Filter>util\ShaderHelper</Filter>
     </ClCompile>
-    <ClCompile Include="src\EventSystem\EventSystem.cpp">
-      <Filter>EventSystem</Filter>
-    </ClCompile>
     <ClCompile Include="src\EventSystem\Event\Event.cpp">
       <Filter>EventSystem\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Renderer\OpenGLRenderer.cpp">
+      <Filter>Render\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Camera\Camera.cpp">
+      <Filter>Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Material\Material.cpp">
+      <Filter>Render\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp">
+      <Filter>Render\Material\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Geometry\Geometry.cpp">
+      <Filter>Render\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Scene\SceneNode.cpp">
+      <Filter>Render\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Scene\SceneManager.cpp">
+      <Filter>Render\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\ComparableObject.cpp">
+      <Filter>util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
