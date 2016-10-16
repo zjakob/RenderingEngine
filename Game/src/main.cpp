@@ -42,15 +42,17 @@ constexpr int windowHeight = 720;
 constexpr float screenCenterX = windowWidth / 2.0f;
 constexpr float screenCenterY = windowHeight / 2.0f;
 
-EventManager<
-	KeyDownEvent,
-	SafeEventCallbackStrategy<KeyDownEvent>,
-	QueuedEventDispatchStrategy<KeyDownEvent, SafeEventCallbackStrategy<KeyDownEvent> > > keyDownManager;
 
-EventManager<
-	MouseMoveEvent,
-	SafeEventCallbackStrategy<MouseMoveEvent>,
-	QueuedEventDispatchStrategy<MouseMoveEvent, SafeEventCallbackStrategy<MouseMoveEvent> > > mouseMoveManager;
+using SafeKeyDownCallbackStartegy = SafeEventCallbackStrategy<KeyDownEvent>;
+using QueuedSafeKeyDownDispatchStrategy = QueuedEventDispatchStrategy<KeyDownEvent, SafeEventCallbackStrategy<KeyDownEvent> >;
+
+EventManager<KeyDownEvent, SafeKeyDownCallbackStartegy, QueuedSafeKeyDownDispatchStrategy > keyDownManager;
+
+
+using SafeMouseMoveCallbackStartegy = SafeEventCallbackStrategy<MouseMoveEvent>;
+using QueuedSafeMouseMoveDispatchStrategy = QueuedEventDispatchStrategy<MouseMoveEvent, SafeEventCallbackStrategy<MouseMoveEvent> >;
+
+EventManager<MouseMoveEvent, SafeMouseMoveCallbackStartegy, QueuedSafeMouseMoveDispatchStrategy> mouseMoveManager;
 
 
 bool keys[1024];
