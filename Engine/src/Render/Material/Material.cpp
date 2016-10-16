@@ -8,6 +8,11 @@
 
 using namespace sag;
 
+Material::Material()
+{
+
+}
+
 Material::Material(GlslShaderProgram&& shader) :
 	shader(std::move(shader))
 {
@@ -22,8 +27,13 @@ Material::Material(Material&& other) :
 {
 }
 
+void Material::setShader(GlslShaderProgram&& shader)
+{
+	this->shader = std::move(shader);
+}
+
 void Material::apply(const glm::mat4& viewProjectionMatrix)
 {
-	glUseProgram(shader.getShaderProgram());
-	shader.setUniformMatrix4fv("mvp", glm::value_ptr(viewProjectionMatrix));
+	shader.use();
+	shader.setUniform("mvp", viewProjectionMatrix);
 }

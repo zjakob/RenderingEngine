@@ -60,9 +60,6 @@
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\ioHelper\ioHelper.h">
-      <Filter>util\ioHelper</Filter>
-    </ClInclude>
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
       <Filter>util\ShaderHelper</Filter>
     </ClInclude>
@@ -114,11 +111,11 @@
     <ClInclude Include="src\Render\Renderer\RenderWindow.h">
       <Filter>Render\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\util\ioHelper\fileHelper.h">
+      <Filter>util\ioHelper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\util\ioHelper\ioHelper.cpp">
-      <Filter>util\ioHelper</Filter>
-    </ClCompile>
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
       <Filter>util\ShaderHelper</Filter>
     </ClCompile>
@@ -148,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="src\util\ComparableObject.cpp">
       <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\ioHelper\fileHelper.cpp">
+      <Filter>util\ioHelper</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

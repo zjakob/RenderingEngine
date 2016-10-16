@@ -13,10 +13,12 @@ namespace sag
 class Material
 {
 public:
+	Material();
 	Material(GlslShaderProgram&& shader);
 	~Material();
 	Material(Material&& other);
 	
+	void setShader(GlslShaderProgram&& shader);
 	void apply(const glm::mat4& viewProjectionMatrix);
 
 private:

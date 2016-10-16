@@ -11,10 +11,7 @@ namespace sag
 class OpenGLException : public std::runtime_error
 {
 public:
-	explicit OpenGLException(const std::string& what_arg) : std::runtime_error(what_arg)
-	{
-
-	}
+	explicit OpenGLException(const std::string& what_arg) : std::runtime_error(what_arg) { }
 
 private:
 };

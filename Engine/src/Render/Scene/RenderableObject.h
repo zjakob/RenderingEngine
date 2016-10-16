@@ -14,6 +14,9 @@ namespace sag
 class RenderableObject : public MoveableObject
 {
 public:
+	RenderableObject()
+	{}
+
 	RenderableObject(Material&& material) :
 		material(std::move(material))
 	{}

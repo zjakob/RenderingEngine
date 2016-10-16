@@ -29,7 +29,7 @@
     <ClInclude Include="src\Render\Scene\SceneManager.h" />
     <ClInclude Include="src\Render\Scene\SceneNode.h" />
     <ClInclude Include="src\util\ComparableObject.h" />
-    <ClInclude Include="src\util\ioHelper\ioHelper.h" />
+    <ClInclude Include="src\util\ioHelper\fileHelper.h" />
     <ClInclude Include="src\util\ioHelper\keyboardHelper.h" />
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
@@ -43,7 +43,7 @@
     <ClCompile Include="src\Render\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Render\Scene\SceneNode.cpp" />
     <ClCompile Include="src\util\ComparableObject.cpp" />
-    <ClCompile Include="src\util\ioHelper\ioHelper.cpp" />
+    <ClCompile Include="src\util\ioHelper\fileHelper.cpp" />
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

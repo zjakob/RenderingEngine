@@ -1,51 +1,166 @@
 
-#include "../../../util/ioHelper/ioHelper.h"
-#include "../../../util/ShaderHelper/glslHelper.h"
+#include "../../../util/ioHelper/fileHelper.h"
 
 #include "GlslShaderProgram.h"
+
+#include <glm/gtc/type_ptr.hpp>
+#include <cassert>
 
 
 using namespace sag;
 
-GlslShaderProgram::GlslShaderProgram(const std::string vertexShaderFile, const std::string fragmentShaderFile) :
-	vertexShaderFile(vertexShaderFile), fragmentShaderFile(fragmentShaderFile)
+GlslShaderProgram::GlslShaderProgram() :
+	linked(false)
 {
-	char* vsSource;
-	GLint vsLen;
-	ioHelper::loadFromFile(vertexShaderFile, &vsSource, vsLen);
-	char* fsSource;
-	GLint fsLen;
-	ioHelper::loadFromFile(fragmentShaderFile, &fsSource, fsLen);
-	this->shaderProgram = glslHelper::makeShaderProgram(vsSource, vsLen, fsSource, fsLen);
+	if (shaderProgramHandle <= 0)
+	{
+		shaderProgramHandle = glCreateProgram();
+		if (shaderProgramHandle == 0)
+			throw GlslShaderProgramException("Unable to create shader program.");
+	}
 }
 
 GlslShaderProgram::~GlslShaderProgram()
 {
-	if (this->shaderProgram >= 0)
-		glDeleteProgram(this->shaderProgram);
+	if (shaderProgramHandle == 0) return;
+
+	// Query the number of attached shaders
+	GLint numShaders = 0;
+	glGetProgramiv(shaderProgramHandle, GL_ATTACHED_SHADERS, &numShaders);
+
+	// Get the shader names
+	GLuint* shaderNames = new GLuint[numShaders];
+	glGetAttachedShaders(shaderProgramHandle, numShaders, NULL, shaderNames);
+
+	// Delete the shaders
+	for (int i = 0; i < numShaders; i++)
+		glDeleteShader(shaderNames[i]);
+
+	// Delete the program
+	glDeleteProgram(shaderProgramHandle);
+
+	delete[] shaderNames;
 }
 
 GlslShaderProgram::GlslShaderProgram(GlslShaderProgram&& other) :
-	vertexShaderFile(std::move(other.vertexShaderFile)),
-	fragmentShaderFile(std::move(other.fragmentShaderFile)),
-	shaderProgram(std::move(other.shaderProgram))
+	shaderProgramHandle(other.shaderProgramHandle)
 {
-	other.shaderProgram = -1; // avoid deletion of shader when invoking the other-destructor after move
+	other.shaderProgramHandle = 0; // avoid deletion of shader when invoking the other-destructor after move
 }
 
 GlslShaderProgram& GlslShaderProgram::operator=(GlslShaderProgram&& other)
 {
-	this->vertexShaderFile = std::move(other.vertexShaderFile);
-	this->fragmentShaderFile = std::move(other.fragmentShaderFile);
-	this->shaderProgram = std::move(other.shaderProgram);
-
-	other.shaderProgram = -1; // avoid deletion of shader when invoking the other-destructor after move
-
+	this->shaderProgramHandle = other.shaderProgramHandle;
+	other.shaderProgramHandle = 0; // avoid deletion of shader when invoking the other-destructor after move
 	return *this;
 }
 
-void GlslShaderProgram::setUniformMatrix4fv(const std::string name, const GLfloat* value)
+void GlslShaderProgram::setUniform(const char* name, const glm::mat4& m)
 {
-	GLint uniformLocation = glGetUniformLocation(this->shaderProgram, name.c_str());
-	glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, value);
+	GLint uniformLocation = glGetUniformLocation(this->shaderProgramHandle, name);
+	glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(m));
+}
+
+int GlslShaderProgram::getUniformLocation(const char* name)
+{
+	std::unordered_map<std::string, int>::const_iterator pos;
+	pos = uniformLocations.find(name);
+
+	if (pos == uniformLocations.end())
+	{
+		uniformLocations[name] = glGetUniformLocation(shaderProgramHandle, name);
+	}
+
+	return uniformLocations[name];
+}
+
+void GlslShaderProgram::bindAttribLocation(GLuint location, const char* name)
+{
+	glBindAttribLocation(shaderProgramHandle, location, name);
+}
+
+void GlslShaderProgram::bindFragDataLocation(GLuint location, const char* name)
+{
+	glBindFragDataLocation(shaderProgramHandle, location, name);
+}
+
+void GlslShaderProgram::attachShader(const char* file, GlslShaderType type)
+{
+	assert(shaderProgramHandle > 0 && "Shader program needs to be created before a shader can be attached.");
+
+	std::string shaderSource = fileHelper::readFile(file);
+
+	int shaderHandle = compileShader(shaderSource, type);
+
+	glAttachShader(shaderProgramHandle, shaderHandle);
+}
+
+GLuint GlslShaderProgram::compileShader(const std::string& shaderSource, GlslShaderType type)
+{
+	GLuint shaderHandle = glCreateShader(type);
+
+	const char * shaderSourceChar = shaderSource.c_str();
+	glShaderSource(shaderHandle, 1, &shaderSourceChar, NULL);
+
+	// Compile the shader
+	glCompileShader(shaderHandle);
+
+	// Check for errors
+	int result;
+	glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &result);
+	if (GL_FALSE == result) {
+		// Compile failed, get log
+		int length = 0;
+		std::string msg = "Shader compilation failed: ";
+		glGetShaderiv(shaderHandle, GL_INFO_LOG_LENGTH, &length);
+		if (length > 0) {
+			char * log = new char[length];
+			int written = 0;
+			glGetShaderInfoLog(shaderHandle, length, &written, log);
+			msg += log;
+			delete[] log;
+		}
+		throw GlslShaderProgramException(msg);
+	}
+
+	return shaderHandle;
+}
+
+void GlslShaderProgram::link()
+{
+	assert(shaderProgramHandle > 0 && "Shader program needs to be created before it can be linked.");
+	assert(!this->linked && "Shader has already been linked.");
+
+	glLinkProgram(shaderProgramHandle);
+
+	int status = 0;
+	glGetProgramiv(shaderProgramHandle, GL_LINK_STATUS, &status);
+	if (GL_FALSE == status)
+	{
+		// Store log and return false
+		int length = 0;
+		std::string msg = "Program link failed: ";
+		glGetProgramiv(shaderProgramHandle, GL_INFO_LOG_LENGTH, &length);
+		if (length > 0) {
+			char * log = new char[length];
+			int written = 0;
+			glGetProgramInfoLog(shaderProgramHandle, length, &written, log);
+			msg += log;
+			delete[] log;
+		}
+		throw GlslShaderProgramException(msg);
+	}
+	else
+	{
+		uniformLocations.clear();
+		linked = true;
+	}
+}
+
+void GlslShaderProgram::use() const
+{
+	assert(shaderProgramHandle > 0 && "Shader program needs to be created before it can be used.");
+	assert(!this->linked && "Shader has already been linked.");
+
+	glUseProgram(shaderProgramHandle);
 }

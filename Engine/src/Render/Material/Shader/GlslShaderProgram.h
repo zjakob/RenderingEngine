@@ -2,35 +2,57 @@
 #define SAG_GLSL_SHADER_PROGRAM_H
 
 #include <string>
-
+#include <stdexcept>
 #include <GL/glew.h>
-
+#include <glm/mat4x4.hpp>
+#include <unordered_map>
 
 namespace sag
 {
 
+
+class GlslShaderProgramException : public std::runtime_error {
+public:
+	GlslShaderProgramException(const std::string& msg) : std::runtime_error(msg) { }
+};
+
+
+enum GlslShaderType {
+	VERTEX = GL_VERTEX_SHADER,
+	FRAGMENT = GL_FRAGMENT_SHADER,
+	GEOMETRY = GL_GEOMETRY_SHADER,
+	TESS_CONTROL = GL_TESS_CONTROL_SHADER,
+	TESS_EVALUATION = GL_TESS_EVALUATION_SHADER,
+	COMPUTE = GL_COMPUTE_SHADER
+};
+
+
 class GlslShaderProgram
 {
 public:
-	GlslShaderProgram(const std::string vertexShader, const std::string fragmentShader);
+	GlslShaderProgram();
 	GlslShaderProgram(GlslShaderProgram&& other);
 	GlslShaderProgram& operator=(GlslShaderProgram&& other);
 	GlslShaderProgram(const GlslShaderProgram& other) = default;
 	GlslShaderProgram& operator=(const GlslShaderProgram& other) = default;
 	~GlslShaderProgram();
 
-	void setUniformMatrix4fv(const std::string name, const GLfloat *value);
+	void setUniform(const char* name, const glm::mat4& m);
+	int getUniformLocation(const char* name);
 
-	const GLuint getShaderProgram() const
-	{
-		return shaderProgram;
-	}
+	void bindAttribLocation(GLuint location, const char * name);
+	void bindFragDataLocation(GLuint location, const char * name);
+
+	void attachShader(const char* file, GlslShaderType type);
+	void link();
+	void use() const;
 
 private:
-	std::string vertexShaderFile;
-	std::string fragmentShaderFile;
+	GLuint shaderProgramHandle;
+	bool linked;
+	std::unordered_map<std::string, int> uniformLocations;
 
-	GLuint shaderProgram;
+	GLuint compileShader(const std::string& shaderSource, GlslShaderType type);
 
 };
 

@@ -8,8 +8,14 @@ using namespace sag;
 using namespace sagame;
 
 CubeEntity::CubeEntity() :
-	RenderableObject(Material(GlslShaderProgram(".\\src\\ShaderSource\\movingtri.vs", ".\\src\\ShaderSource\\movingtri.fs")))
+	RenderableObject()
 {
+	sag::GlslShaderProgram shader;
+	shader.attachShader(".\\src\\ShaderSource\\movingtri.vs", sag::VERTEX);
+	shader.attachShader(".\\src\\ShaderSource\\movingtri.fs", sag::FRAGMENT);
+	shader.link();
+	this->material.setShader(std::move(shader));
+
 	std::vector<GLfloat> vertexPos{
 		-0.25f, -0.25f, -0.25f,
 		-0.25f, 0.25f, -0.25f,

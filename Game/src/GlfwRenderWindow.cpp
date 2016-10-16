@@ -19,12 +19,14 @@ GlfwRenderWindow::GlfwRenderWindow(unsigned int windowWidth, unsigned int window
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #if defined(_DEBUG) || defined(NDEBUG)
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(windowWidth, windowHeight, "Render Engine", NULL, NULL);
+	window = glfwCreateWindow(windowWidth, windowHeight, "SAG Engine", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
