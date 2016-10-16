@@ -28,6 +28,11 @@
 #include "Player.h"
 #include "CubeEntity.h"
 
+
+using namespace sag;
+using namespace sagame;
+
+
 double lastTime;
 double currentTime;
 float deltaTime;

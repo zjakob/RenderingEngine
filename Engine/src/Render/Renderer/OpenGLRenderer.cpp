@@ -4,6 +4,8 @@
 #include "../../Exception/OpenGLException.h"
 
 
+using namespace sag;
+
 OpenGLRenderer::OpenGLRenderer(RenderWindow& renderWindow) :
 	renderWindow(renderWindow)
 {

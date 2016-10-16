@@ -2,6 +2,9 @@
 
 #include <glm\gtc\matrix_transform.hpp>
 
+
+using namespace sag;
+
 constexpr float defaultNear = 0.01f;
 constexpr float defaultFar = 1000.0f;
 

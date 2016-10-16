@@ -1,7 +1,11 @@
-#ifndef EVENT_H
-#define EVENT_H
+#ifndef SAG_EVENT_H
+#define SAG_EVENT_H
 
 #include <string>
+
+
+namespace sag
+{
 
 class Event
 {
@@ -23,4 +27,7 @@ protected:
 
 };
 
-#endif // EVENT_H
+} // namespace sag
+
+
+#endif // SAG_EVENT_H

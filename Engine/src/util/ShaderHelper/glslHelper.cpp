@@ -1,5 +1,8 @@
 #include "glslHelper.h"
 
+
+using namespace sag;
+
 GLuint glslHelper::makeShader(GLenum shaderType, const char* source, GLint sourceLength)
 {
 	GLuint shader;

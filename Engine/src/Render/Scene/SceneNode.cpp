@@ -4,6 +4,8 @@
 #include <cassert>
 
 
+using namespace sag;
+
 SceneNode::SceneNode(std::weak_ptr<SceneNode> parent) :
 	parent(parent),
 	modelMatrix(1.0)

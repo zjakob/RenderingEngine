@@ -6,6 +6,8 @@
 #include "..\..\util\ShaderHelper\glslHelper.h"
 
 
+using namespace sag;
+
 Material::Material(GlslShaderProgram&& shader) :
 	shader(std::move(shader))
 {

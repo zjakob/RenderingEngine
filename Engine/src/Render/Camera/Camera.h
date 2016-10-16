@@ -1,9 +1,13 @@
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef SAG_CAMERA_H
+#define SAG_CAMERA_H
 
 #include <glm\mat4x4.hpp>
 
 #include "../Scene/MoveableObject.h"
+
+
+namespace sag
+{
 
 class Camera : public MoveableObject
 {
@@ -22,4 +26,6 @@ private:
 	glm::mat4 projection;
 };
 
-#endif // CAMERA_H
+} // namespace sag
+
+#endif // SAG_CAMERA_H

@@ -7,6 +7,9 @@
 #include <Render\Scene\SceneManager.h>
 
 
+using namespace sag;
+using namespace sagame;
+
 constexpr float defaultMouseSensitivity = 110.0f;
 constexpr float defaultKeyBoardSensitivity = 8.0f;
 

@@ -1,11 +1,15 @@
-#ifndef KEY_DOWN_EVENT_H
-#define KEY_DOWN_EVENT_H
+#ifndef SAG_KEY_DOWN_EVENT_H
+#define SAG_KEY_DOWN_EVENT_H
 
 #include <string>
 
 #include "..\..\util\ioHelper\keyboardHelper.h"
 
 #include "Event.h"
+
+
+namespace sag
+{
 
 class KeyDownEvent : public Event
 {
@@ -25,4 +29,7 @@ private:
 	const float deltaTime;
 };
 
-#endif // KEY_DOWN_EVENT_H
+} // namespace sag
+
+
+#endif // SAG_KEY_DOWN_EVENT_H

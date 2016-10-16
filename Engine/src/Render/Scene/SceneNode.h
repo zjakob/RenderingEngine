@@ -1,5 +1,5 @@
-#ifndef SCENE_NODE_H
-#define SCENE_NODE_H
+#ifndef SAG_SCENE_NODE_H
+#define SAG_SCENE_NODE_H
 
 #include <memory>
 #include <list>
@@ -14,6 +14,9 @@
 #include "RenderableObject.h"
 #include "../../util/ComparableObject.h"
 
+
+namespace sag
+{
 
 class SceneNode : public ComparableObject, public std::enable_shared_from_this<SceneNode>
 {
@@ -49,5 +52,7 @@ private:
 
 };
 
+} // namespace sag
 
-#endif // SCENE_NODE_H
+
+#endif // SAG_SCENE_NODE_H

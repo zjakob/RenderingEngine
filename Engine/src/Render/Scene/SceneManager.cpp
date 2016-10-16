@@ -2,6 +2,8 @@
 #include "SceneManager.h"
 
 
+using namespace sag;
+
 SceneManager& SceneManager::getInstance()
 {
 	static SceneManager singletonInstance;

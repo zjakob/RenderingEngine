@@ -5,6 +5,8 @@
 #include "GlslShaderProgram.h"
 
 
+using namespace sag;
+
 GlslShaderProgram::GlslShaderProgram(const std::string vertexShaderFile, const std::string fragmentShaderFile) :
 	vertexShaderFile(vertexShaderFile), fragmentShaderFile(fragmentShaderFile)
 {

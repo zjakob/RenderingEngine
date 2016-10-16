@@ -4,6 +4,9 @@
 #include <Exception/OpenGLException.h>
 
 
+using namespace sag;
+using namespace sagame;
+
 GlfwRenderWindow::GlfwRenderWindow(unsigned int windowWidth, unsigned int windowHeight) :
 	windowWidth(windowWidth),
 	windowHeight(windowHeight)
@@ -16,7 +19,7 @@ GlfwRenderWindow::GlfwRenderWindow(unsigned int windowWidth, unsigned int window
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-#ifdef _DEBUG
+#if defined(_DEBUG) || defined(NDEBUG)
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif
 

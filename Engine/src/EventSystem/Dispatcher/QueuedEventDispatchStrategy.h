@@ -1,8 +1,12 @@
-#ifndef QUEUED_DISPATCH_STRATEGY_H
-#define QUEUED_DISPATCH_STRATEGY_H
+#ifndef SAG_QUEUED_DISPATCH_STRATEGY_H
+#define SAG_QUEUED_DISPATCH_STRATEGY_H
 
 #include <list>
 #include <memory>
+
+
+namespace sag
+{
 
 template <typename EventType, typename ListenerStrategy>
 class QueuedEventDispatchStrategy
@@ -28,4 +32,6 @@ private:
 	std::list<std::unique_ptr<EventType>> eventList;
 };
 
-#endif // QUEUED_DISPATCH_STRATEGY_H
+} // namespace sag
+
+#endif // SAG_QUEUED_DISPATCH_STRATEGY_H

@@ -2,6 +2,8 @@
 #include "Geometry.h"
 
 
+using namespace sag;
+
 Geometry::Geometry()
 {
 

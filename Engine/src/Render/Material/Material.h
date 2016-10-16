@@ -1,10 +1,14 @@
-#ifndef _MATERIAL_H
-#define _MATERIAL_H
+#ifndef SAG_MATERIAL_H
+#define SAG_MATERIAL_H
 
 #include <glm/mat4x4.hpp>
 #include <GL/glew.h>
 
 #include "Shader/GlslShaderProgram.h"
+
+
+namespace sag
+{
 
 class Material
 {
@@ -20,4 +24,7 @@ private:
 
 };
 
-#endif // _MATERIAL_H
+} // namespace sag
+
+
+#endif // SAG_MATERIAL_H

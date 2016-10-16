@@ -1,5 +1,8 @@
 #include "ioHelper.h"
 
+
+using namespace sag;
+
 void ioHelper::loadFromFile(const std::string &filename, char** shaderSource, int& shaderLength)
 {
 	std::ifstream file;

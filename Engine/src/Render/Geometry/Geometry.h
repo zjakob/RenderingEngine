@@ -1,9 +1,13 @@
-#ifndef GEOMETRY_H
-#define GEOMETRY_H
+#ifndef SAG_GEOMETRY_H
+#define SAG_GEOMETRY_H
 
 #include <vector>
 
 #include <GL/glew.h>
+
+
+namespace sag
+{
 
 class Geometry
 {
@@ -27,4 +31,7 @@ private:
 
 };
 
-#endif // GEOMETRY_H
+} // namespace sag
+
+
+#endif // SAG_GEOMETRY_H

@@ -1,11 +1,15 @@
-#ifndef MOUSE_MOVE_EVENT_H
-#define MOUSE_MOVE_EVENT_H
+#ifndef SAG_MOUSE_MOVE_EVENT_H
+#define SAG_MOUSE_MOVE_EVENT_H
 
 #include <string>
 
 #include "..\..\util\ioHelper\keyboardHelper.h"
 
 #include "Event.h"
+
+
+namespace sag
+{
 
 class MouseMoveEvent : public Event
 {
@@ -27,4 +31,7 @@ private:
 	const float deltaY;
 };
 
-#endif // MOUSE_MOVE_EVENT_H
+} // namespace sag
+
+
+#endif // SAG_MOUSE_MOVE_EVENT_H

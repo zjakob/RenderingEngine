@@ -1,11 +1,15 @@
-#ifndef SCENE_MANAGER_H
-#define SCENE_MANAGER_H
+#ifndef SAG_SCENE_MANAGER_H
+#define SAG_SCENE_MANAGER_H
 
 #include <memory>
 
 #include "SceneNode.h"
 #include "RenderableObject.h"
 #include "../Camera/Camera.h"
+
+
+namespace sag
+{
 
 class SceneManager
 {
@@ -36,4 +40,7 @@ private:
 
 };
 
-#endif // SCENE_MANAGER_H
+} // namespace sag
+
+
+#endif // SAG_SCENE_MANAGER_H

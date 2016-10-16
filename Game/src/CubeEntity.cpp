@@ -4,6 +4,9 @@
 #include <Render\Scene\SceneManager.h>
 
 
+using namespace sag;
+using namespace sagame;
+
 CubeEntity::CubeEntity() :
 	RenderableObject(Material(GlslShaderProgram(".\\src\\ShaderSource\\movingtri.vs", ".\\src\\ShaderSource\\movingtri.fs")))
 {

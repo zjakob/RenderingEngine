@@ -1,15 +1,19 @@
-#ifndef _SAG_GLFW_RENDER_WINDOW_H
-#define _SAG_GLFW_RENDER_WINDOW_H
+#ifndef SAGAME_GLFW_RENDER_WINDOW_H
+#define SAGAME_GLFW_RENDER_WINDOW_H
 
 #include <GLFW/glfw3.h>
 
 #include <Render\Renderer\RenderWindow.h>
 
-class GlfwRenderWindow : public RenderWindow
+
+namespace sagame
+{
+
+class GlfwRenderWindow : public sag::RenderWindow
 {
 public:
 	GlfwRenderWindow(unsigned int windowWidth, unsigned int windowHeight);
-	 
+
 	~GlfwRenderWindow();
 
 	GLFWwindow* getWindow();
@@ -28,4 +32,7 @@ private:
 	GLFWwindow* window;
 };
 
-#endif // _SAG_GLFW_RENDER_WINDOW_H
+} // namespace sagame
+
+
+#endif // SAGAME_GLFW_RENDER_WINDOW_H

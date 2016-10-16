@@ -1,17 +1,18 @@
-#ifndef _SAG_CUBE_H
-#define _SAG_CUBE_H
+#ifndef SAGAME_CUBE_H
+#define SAGAME_CUBE_H
 
 #include <GL/glew.h>
 
-#include <Render\Geometry\Geometry.h>
-#include <Render\Material\Material.h>
-#include <Render\Material\Shader\GlslShaderProgram.h>
 #include <Render\Scene\RenderableObject.h>
 #include <Render\Scene\SceneNode.h>
 
 #include <memory>
 
-class CubeEntity : public RenderableObject
+
+namespace sagame
+{
+
+class CubeEntity : public sag::RenderableObject
 {
 public:
 	CubeEntity();
@@ -21,9 +22,12 @@ public:
 	void setPosition(glm::vec3& position);
 
 private:
-	std::weak_ptr<SceneNode> sceneNode;
+	std::weak_ptr<sag::SceneNode> sceneNode;
 
 
 };
 
-#endif // _SAG_CUBE_H
+} // namespace sagame
+
+
+#endif // SAGAME_CUBE_H

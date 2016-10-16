@@ -1,5 +1,5 @@
-#ifndef OPENGL_RENDERER_H
-#define OPENGL_RENDERER_H
+#ifndef SAG_OPENGL_RENDERER_H
+#define SAG_OPENGL_RENDERER_H
 
 #include <list>
 
@@ -8,6 +8,10 @@
 #include "../Camera/Camera.h"
 #include "../Scene/SceneNode.h"
 #include "RenderWindow.h"
+
+
+namespace sag
+{
 
 class OpenGLRenderer
 {
@@ -23,4 +27,7 @@ private:
 
 };
 
-#endif // OPENGL_RENDERER_H
+} // namespace sag
+
+
+#endif // SAG_OPENGL_RENDERER_H

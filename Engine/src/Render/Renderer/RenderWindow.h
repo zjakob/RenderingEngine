@@ -1,6 +1,9 @@
-#ifndef RENDER_WINDOW_H
-#define RENDER_WINDOW_H
+#ifndef SAG_RENDER_WINDOW_H
+#define SAG_RENDER_WINDOW_H
 
+
+namespace sag
+{
 
 class RenderWindow
 {
@@ -15,4 +18,7 @@ private:
 
 };
 
-#endif // RENDER_WINDOW_H
+} // namespace sag
+
+
+#endif // SAG_RENDER_WINDOW_H

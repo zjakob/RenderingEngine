@@ -1,9 +1,12 @@
-#ifndef OPENGL_EXCEPTION_H
-#define OPENGL_EXCEPTION_H
+#ifndef SAG_OPENGL_EXCEPTION_H
+#define SAG_OPENGL_EXCEPTION_H
 
 #include <stdexcept>
 #include <string>
 
+
+namespace sag
+{
 
 class OpenGLException : public std::runtime_error
 {
@@ -16,4 +19,7 @@ public:
 private:
 };
 
-#endif // OPENGL_EXCEPTION_H
+} // namespace sag
+
+
+#endif // SAG_OPENGL_EXCEPTION_H

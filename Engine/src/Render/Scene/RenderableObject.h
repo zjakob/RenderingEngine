@@ -1,11 +1,15 @@
-#ifndef RENDERABLE_OBJECT_H
-#define RENDERABLE_OBJECT_H
+#ifndef SAG_RENDERABLE_OBJECT_H
+#define SAG_RENDERABLE_OBJECT_H
 
 #include "MoveableObject.h"
 #include "../Geometry/Geometry.h"
 #include "../Material/Material.h"
 
 #include <utility>
+
+
+namespace sag
+{
 
 class RenderableObject : public MoveableObject
 {
@@ -29,4 +33,7 @@ protected:
 
 };
 
-#endif // RENDERABLE_OBJECT_H
+} // namespace sag
+
+
+#endif // SAG_RENDERABLE_OBJECT_H

@@ -1,10 +1,13 @@
-#ifndef MOVEABLE_OBJECT_H
-#define MOVEABLE_OBJECT_H
+#ifndef SAG_MOVEABLE_OBJECT_H
+#define SAG_MOVEABLE_OBJECT_H
 
 #include <glm/mat4x4.hpp>
 
 #include "../../util/ComparableObject.h"
 
+
+namespace sag
+{
 
 class MoveableObject : public ComparableObject
 {
@@ -30,5 +33,7 @@ protected:
 
 };
 
+} // namespace sag
 
-#endif // MOVEABLE_OBJECT_H
+
+#endif // SAG_MOVEABLE_OBJECT_H

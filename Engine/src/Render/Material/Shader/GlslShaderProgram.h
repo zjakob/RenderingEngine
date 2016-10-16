@@ -1,9 +1,13 @@
-#ifndef _GLSL_SHADER_PROGRAM_H
-#define _GLSL_SHADER_PROGRAM_H
+#ifndef SAG_GLSL_SHADER_PROGRAM_H
+#define SAG_GLSL_SHADER_PROGRAM_H
 
 #include <string>
 
 #include <GL/glew.h>
+
+
+namespace sag
+{
 
 class GlslShaderProgram
 {
@@ -30,4 +34,7 @@ private:
 
 };
 
-#endif // _GLSL_SHADER_PROGRAM_H
+} // namespace sag
+
+
+#endif // SAG_GLSL_SHADER_PROGRAM_H

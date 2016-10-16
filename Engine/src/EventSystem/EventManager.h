@@ -1,5 +1,5 @@
-#ifndef EVENT_MANAGER_H
-#define EVENT_MANAGER_H
+#ifndef SAG_EVENT_MANAGER_H
+#define SAG_EVENT_MANAGER_H
 
 #include <string>
 #include <memory>
@@ -7,6 +7,10 @@
 #include <functional>
 
 #include <iostream>
+
+
+namespace sag
+{
 
 class Event;
 
@@ -43,4 +47,7 @@ public:
 
 };
 
-#endif // EVENT_MANAGER_H
+} // namespace sag
+
+
+#endif // SAG_EVENT_MANAGER_H

@@ -1,8 +1,12 @@
-#ifndef SAVE_EVENT_CALLBACK_STRATEGY_H
-#define SAVE_EVENT_CALLBACK_STRATEGY_H
+#ifndef SAG_SAVE_EVENT_CALLBACK_STRATEGY_H
+#define SAG_SAVE_EVENT_CALLBACK_STRATEGY_H
 
 #include <list>
 #include <string>
+
+
+namespace sag
+{
 
 template <typename EventType>
 class SafeEventCallbackStrategy
@@ -30,4 +34,7 @@ private:
 	std::list< std::function<void(EventType&)> > callbacks;
 };
 
-#endif // SAVE_EVENT_CALLBACK_STRATEGY_H
+} // namespace sag
+
+
+#endif // SAG_SAVE_EVENT_CALLBACK_STRATEGY_H

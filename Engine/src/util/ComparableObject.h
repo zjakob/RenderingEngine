@@ -1,5 +1,9 @@
-#ifndef IDENTIFYABLE_OBJECT_H
-#define IDENTIFYABLE_OBJECT_H
+#ifndef SAG_IDENTIFYABLE_OBJECT_H
+#define SAG_IDENTIFYABLE_OBJECT_H
+
+
+namespace sag
+{
 
 class ComparableObject
 {
@@ -16,4 +20,7 @@ private:
 
 };
 
-#endif // IDENTIFYABLE_OBJECT_H
+} // namespace sag
+
+
+#endif // SAG_IDENTIFYABLE_OBJECT_H

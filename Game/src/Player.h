@@ -1,5 +1,5 @@
-#ifndef _SAG_PLAYER_H
-#define _SAG_PLAYER_H
+#ifndef SAGAME_PLAYER_H
+#define SAGAME_PLAYER_H
 
 #include <EventSystem\Event\KeyDownEvent.h>
 #include <EventSystem\Event\MouseMoveEvent.h>
@@ -8,22 +8,26 @@
 
 #include <Render\Scene\SceneNode.h>
 
+
+namespace sagame
+{
+
 class Player
 {
 public:
-	Player(Camera&& camera);
+	Player(sag::Camera&& camera);
 
-	const Camera& getCamera() const { return camera; }
+	const sag::Camera& getCamera() const { return camera; }
 
-	void handleKeyDownEvent(KeyDownEvent& e);
-	void handleMouseMoveEvent(MouseMoveEvent& e);
+	void handleKeyDownEvent(sag::KeyDownEvent& e);
+	void handleMouseMoveEvent(sag::MouseMoveEvent& e);
 
 	void setPosition(glm::vec3 position);
 
 
 private:
-	Camera camera;
-	std::weak_ptr<SceneNode> cameraSceneNode;
+	sag::Camera camera;
+	std::weak_ptr<sag::SceneNode> cameraSceneNode;
 
 	const float mouseSensitivity;
 	const float keySensitivity;
@@ -43,4 +47,7 @@ private:
 
 };
 
-#endif // _SAG_PLAYER_H
+} // namespace sagame
+
+
+#endif // SAGAME_PLAYER_H
