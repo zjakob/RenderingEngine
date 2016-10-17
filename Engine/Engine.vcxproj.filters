@@ -134,9 +134,6 @@
     <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp">
       <Filter>Render\Material\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Geometry\Geometry.cpp">
-      <Filter>Render\Geometry</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\Scene\SceneNode.cpp">
       <Filter>Render\Scene</Filter>
     </ClCompile>

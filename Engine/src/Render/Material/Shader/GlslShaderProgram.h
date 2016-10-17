@@ -5,6 +5,9 @@
 #include <stdexcept>
 #include <GL/glew.h>
 #include <glm/mat4x4.hpp>
+#include <glm/mat3x3.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <unordered_map>
 
 namespace sag
@@ -37,11 +40,16 @@ public:
 	GlslShaderProgram& operator=(const GlslShaderProgram& other) = default;
 	~GlslShaderProgram();
 
+	void setUniform(const char* name, float x, float y, float z);
+	void setUniform(const char* name, const glm::vec3& v);
+	void setUniform(const char* name, const glm::vec4& v);
+	void setUniform(const char* name, const glm::mat3& m);
 	void setUniform(const char* name, const glm::mat4& m);
 	int getUniformLocation(const char* name);
 
-	void bindAttribLocation(GLuint location, const char * name);
-	void bindFragDataLocation(GLuint location, const char * name);
+	GLint getAttribLocation(const char* name);
+	void bindAttribLocation(GLuint location, const char* name);
+	void bindFragDataLocation(GLuint location, const char* name);
 
 	void attachShader(const char* file, GlslShaderType type);
 	void link();

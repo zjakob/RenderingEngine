@@ -17,7 +17,7 @@ class CubeEntity : public sag::RenderableObject
 public:
 	CubeEntity();
 
-	void render(const glm::mat4& viewProjectionMatrix);
+	void render(const glm::mat4& view, const glm::mat4& viewProjectionMatrix);
 
 	void setPosition(glm::vec3& position);
 

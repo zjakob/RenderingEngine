@@ -6,6 +6,7 @@
 #include "../Material/Material.h"
 
 #include <utility>
+#include <memory>
 
 
 namespace sag
@@ -14,25 +15,17 @@ namespace sag
 class RenderableObject : public MoveableObject
 {
 public:
-	RenderableObject()
-	{}
-
-	RenderableObject(Material&& material) :
-		material(std::move(material))
-	{}
-
-	RenderableObject(Material&& material, Geometry&& geometry) :
+	RenderableObject(std::unique_ptr<Material> material, std::unique_ptr<Geometry> geometry) :
 		material(std::move(material)), geometry(std::move(geometry))
-	{}
+	{
 
-	virtual void setGeometry(Geometry&& geometry) { this->geometry = geometry; };
+	}
 
-	virtual void render(const glm::mat4& projection) = 0;
+	virtual void render(const glm::mat4& view, const glm::mat4& projection) = 0;
 
 protected:
-
-	Material material;
-	Geometry geometry;
+	std::unique_ptr<Material> material;
+	std::unique_ptr<Geometry> geometry;
 
 };
 

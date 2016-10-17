@@ -55,6 +55,29 @@ GlslShaderProgram& GlslShaderProgram::operator=(GlslShaderProgram&& other)
 	return *this;
 }
 
+void GlslShaderProgram::setUniform(const char* name, float x, float y, float z)
+{
+	GLint loc = getUniformLocation(name);
+	glUniform3f(loc, x, y, z);
+}
+
+void GlslShaderProgram::setUniform(const char* name, const glm::vec3& v)
+{
+	this->setUniform(name, v.x, v.y, v.z);
+}
+
+void GlslShaderProgram::setUniform(const char* name, const glm::vec4& v)
+{
+	GLint loc = getUniformLocation(name);
+	glUniform4f(loc, v.x, v.y, v.z, v.w);
+}
+
+void GlslShaderProgram::setUniform(const char* name, const glm::mat3& m)
+{
+	GLint loc = getUniformLocation(name);
+	glUniformMatrix3fv(loc, 1, GL_FALSE, &m[0][0]);
+}
+
 void GlslShaderProgram::setUniform(const char* name, const glm::mat4& m)
 {
 	GLint uniformLocation = glGetUniformLocation(this->shaderProgramHandle, name);
@@ -72,6 +95,11 @@ int GlslShaderProgram::getUniformLocation(const char* name)
 	}
 
 	return uniformLocations[name];
+}
+
+GLint GlslShaderProgram::getAttribLocation(const char* name)
+{
+	return glGetAttribLocation(shaderProgramHandle, name);
 }
 
 void GlslShaderProgram::bindAttribLocation(GLuint location, const char* name)
@@ -99,7 +127,7 @@ GLuint GlslShaderProgram::compileShader(const std::string& shaderSource, GlslSha
 {
 	GLuint shaderHandle = glCreateShader(type);
 
-	const char * shaderSourceChar = shaderSource.c_str();
+	const char* shaderSourceChar = shaderSource.c_str();
 	glShaderSource(shaderHandle, 1, &shaderSourceChar, NULL);
 
 	// Compile the shader
@@ -114,7 +142,7 @@ GLuint GlslShaderProgram::compileShader(const std::string& shaderSource, GlslSha
 		std::string msg = "Shader compilation failed: ";
 		glGetShaderiv(shaderHandle, GL_INFO_LOG_LENGTH, &length);
 		if (length > 0) {
-			char * log = new char[length];
+			char* log = new char[length];
 			int written = 0;
 			glGetShaderInfoLog(shaderHandle, length, &written, log);
 			msg += log;
@@ -142,7 +170,7 @@ void GlslShaderProgram::link()
 		std::string msg = "Program link failed: ";
 		glGetProgramiv(shaderProgramHandle, GL_INFO_LOG_LENGTH, &length);
 		if (length > 0) {
-			char * log = new char[length];
+			char* log = new char[length];
 			int written = 0;
 			glGetProgramInfoLog(shaderProgramHandle, length, &written, log);
 			msg += log;
@@ -160,7 +188,7 @@ void GlslShaderProgram::link()
 void GlslShaderProgram::use() const
 {
 	assert(shaderProgramHandle > 0 && "Shader program needs to be created before it can be used.");
-	assert(!this->linked && "Shader has already been linked.");
+	assert(this->linked && "Shader has already been linked.");
 
 	glUseProgram(shaderProgramHandle);
 }

@@ -18,6 +18,12 @@ Material::Material(GlslShaderProgram&& shader) :
 {
 }
 
+Material& Material::operator=(Material&& other)
+{
+	this->shader = std::move(other.shader);
+	return *this;
+}
+
 Material::~Material()
 {
 }
@@ -25,15 +31,4 @@ Material::~Material()
 Material::Material(Material&& other) :
 	shader(std::move(other.shader))
 {
-}
-
-void Material::setShader(GlslShaderProgram&& shader)
-{
-	this->shader = std::move(shader);
-}
-
-void Material::apply(const glm::mat4& viewProjectionMatrix)
-{
-	shader.use();
-	shader.setUniform("mvp", viewProjectionMatrix);
 }

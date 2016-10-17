@@ -25,8 +25,8 @@
 #include <Render\Scene\SceneManager.h>
 
 #include "GlfwRenderWindow.h"
-#include "Player.h"
-#include "CubeEntity.h"
+#include ".\Entities\Cube\CubeEntity.h"
+#include ".\Entities\Player.h"
 
 
 using namespace sag;

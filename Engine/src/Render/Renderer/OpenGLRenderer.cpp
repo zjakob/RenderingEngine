@@ -19,7 +19,10 @@ OpenGLRenderer::~OpenGLRenderer()
 void OpenGLRenderer::init()
 {
 	if (glewInit())
+	{
 		throw OpenGLException("Failed to initialize glew");
+	}
+	GLenum error = glGetError(); // get GL-error 1280 to clear glGetError
 
 	glEnable(GL_CULL_FACE);
 	// glFrontFace(GL_CW);
@@ -41,12 +44,12 @@ void OpenGLRenderer::render(const std::list<RenderableObject*>& renderableSceneN
 
 	const glm::mat4& projection = camera.getProjectionMatrix();
 	const glm::mat4& view = camera.getTransformation();
-	const glm::mat4 vpMat = projection * view;
+	const glm::mat4 viewProjection = projection * view;
 
 	// render
 	for (auto& renderableObj : renderableSceneNodes)
 	{
-		renderableObj->render(vpMat);
+		renderableObj->render(view, viewProjection);
 	}
 
 	// swap buffer

@@ -36,7 +36,6 @@
   <ItemGroup>
     <ClCompile Include="src\EventSystem\Event\Event.cpp" />
     <ClCompile Include="src\Render\Camera\Camera.cpp" />
-    <ClCompile Include="src\Render\Geometry\Geometry.cpp" />
     <ClCompile Include="src\Render\Material\Material.cpp" />
     <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp" />
     <ClCompile Include="src\Render\Renderer\OpenGLRenderer.cpp" />

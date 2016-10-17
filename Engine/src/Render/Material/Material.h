@@ -15,13 +15,15 @@ class Material
 public:
 	Material();
 	Material(GlslShaderProgram&& shader);
-	~Material();
+	virtual ~Material();
 	Material(Material&& other);
+	Material& operator=(Material&& other);
+	Material(const Material& other) = default;
+	Material& operator=(const Material& other) = default;
 	
-	void setShader(GlslShaderProgram&& shader);
-	void apply(const glm::mat4& viewProjectionMatrix);
+	virtual void apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection) = 0;
 
-private:
+protected:
 	GlslShaderProgram shader;
 
 };
