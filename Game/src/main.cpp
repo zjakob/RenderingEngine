@@ -26,7 +26,9 @@
 
 #include "GlfwRenderWindow.h"
 #include ".\Entities\Cube\CubeEntity.h"
+#include ".\Entities\Floor\FloorEntity.h"
 #include ".\Entities\Player.h"
+#include <Render\Light.h>
 
 
 using namespace sag;
@@ -116,7 +118,7 @@ int main(void)
 	Camera mainCamera(windowWidth / float(windowHeight), 90.0f);
 
 	Player player(std::move(mainCamera));
-	player.setPosition(glm::vec3(0.0f, 0.0f, 1.0f));
+	player.setPosition(glm::vec3(0.0f, 1.0f, 1.0f));
 
 	SceneManager& sceneManager = SceneManager::getInstance();
 	sceneManager.setMainCamera(player.getCamera());
@@ -129,7 +131,22 @@ int main(void)
 
 	CubeEntity cube;
 	sceneManager.registerRenderableObject(cube);
-	cube.setPosition(glm::vec3(0.0f, 0.0f, -1.0f));
+	cube.setPosition(glm::vec3(0.0f, 0.5f, 0.0f));
+
+	FloorEntity floor;
+	sceneManager.registerRenderableObject(floor);
+	floor.scale(glm::vec3(10.0f, 0.1f, 10.0f));
+	floor.setPosition(glm::vec3(0.0f, -0.05f, 0.0f));
+
+	Light pointLight(LightType::Point);
+	sceneManager.registerLight(pointLight);
+	auto pointLightNode = sceneManager.getRootSceneNode().lock()->createChildSceneNode();
+	if (auto lockedSceneNode = pointLightNode.lock())
+	{
+		lockedSceneNode->attachObject(pointLight);
+		lockedSceneNode->setLocalTransformation(glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 1.0f, 2.5f)));
+	}
+
 
 	while (!window.shouldClose())
 	{
@@ -144,7 +161,7 @@ int main(void)
 		mouseMoveManager.update();
 
 		
-		renderer.render(sceneManager.getRenderableObjects(), sceneManager.getMainCamera());
+		renderer.render(sceneManager.getMainCamera(), sceneManager.getLights(), sceneManager.getRenderableObjects());
 	}
 
 	

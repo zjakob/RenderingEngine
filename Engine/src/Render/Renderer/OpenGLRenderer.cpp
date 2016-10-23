@@ -33,7 +33,7 @@ void OpenGLRenderer::init()
 	glViewport(0, 0, renderWindow.getWidth(), renderWindow.getHeight());
 }
 
-void OpenGLRenderer::render(const std::list<RenderableObject*>& renderableSceneNodes, const Camera& camera)
+void OpenGLRenderer::render(const Camera& camera, const std::list<Light*>& lights, const std::list<RenderableObject*>& renderableObjects)
 {
 	// clear
 	static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
@@ -47,9 +47,9 @@ void OpenGLRenderer::render(const std::list<RenderableObject*>& renderableSceneN
 	const glm::mat4 viewProjection = projection * view;
 
 	// render
-	for (auto& renderableObj : renderableSceneNodes)
+	for (auto& renderableObj : renderableObjects)
 	{
-		renderableObj->render(view, viewProjection);
+		renderableObj->render(view, viewProjection, lights);
 	}
 
 	// swap buffer

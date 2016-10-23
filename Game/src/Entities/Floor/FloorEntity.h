@@ -1,5 +1,5 @@
-#ifndef SAGAME_CUBE_H
-#define SAGAME_CUBE_H
+#ifndef SAGAME_FLOOR_H
+#define SAGAME_FLOOR_H
 
 #include <GL/glew.h>
 
@@ -13,14 +13,15 @@
 namespace sagame
 {
 
-class CubeEntity : public sag::RenderableObject
+class FloorEntity : public sag::RenderableObject
 {
 public:
-	CubeEntity();
+	FloorEntity();
 
 	void render(const glm::mat4& view, const glm::mat4& projection, const std::list<sag::Light*>& lights) override;
 
 	void setPosition(glm::vec3& position);
+	void scale(glm::vec3& scale);
 
 private:
 	std::weak_ptr<sag::SceneNode> sceneNode;
@@ -31,4 +32,4 @@ private:
 } // namespace sagame
 
 
-#endif // SAGAME_CUBE_H
+#endif // SAGAME_FLOOR_H

@@ -23,7 +23,7 @@ public:
 		return modelMatrix;
 	}
 
-	virtual void setTransformation(glm::mat4& modelMatrix)
+	virtual void setTransformation(const glm::mat4& modelMatrix)
 	{
 		this->modelMatrix = modelMatrix;
 	}

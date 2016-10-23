@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Entities\Cube">
       <UniqueIdentifier>{bf034578-aa62-43c6-8090-14b0da1234a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Floor">
+      <UniqueIdentifier>{cfc75765-98c4-4cfe-9d67-22254c4bb201}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -39,6 +42,15 @@
     <ClCompile Include="src\Entities\Player.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entities\Floor\FloorGeometry.cpp">
+      <Filter>Source Files\Entities\Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Floor\FloorMaterial.cpp">
+      <Filter>Source Files\Entities\Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Floor\FloorEntity.cpp">
+      <Filter>Source Files\Entities\Floor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GlfwRenderWindow.h">
@@ -55,6 +67,15 @@
     </ClInclude>
     <ClInclude Include="src\Entities\Player.h">
       <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Floor\FloorEntity.h">
+      <Filter>Source Files\Entities\Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Floor\FloorGeometry.h">
+      <Filter>Source Files\Entities\Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Floor\FloorMaterial.h">
+      <Filter>Source Files\Entities\Floor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

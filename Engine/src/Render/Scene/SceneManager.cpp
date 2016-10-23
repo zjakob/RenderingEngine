@@ -37,3 +37,18 @@ const std::list<RenderableObject*>& SceneManager::getRenderableObjects() const
 {
 	return renderableObjects;
 }
+
+void SceneManager::registerLight(Light& obj)
+{
+	lights.push_back(&obj);
+}
+
+void SceneManager::deregisterLight(Light& obj)
+{
+	lights.remove(&obj);
+}
+
+const std::list<Light*>& SceneManager::getLights() const
+{
+	return lights;
+}

@@ -1,6 +1,4 @@
-#include "CubeMaterial.h"
-
-#include <Render\Light.h>
+#include "FloorMaterial.h"
 
 #include <glm/vec4.hpp>
 #include <glm/mat3x3.hpp>
@@ -9,7 +7,7 @@ using namespace sag;
 using namespace sagame;
 
 
-CubeMaterial::CubeMaterial()
+FloorMaterial::FloorMaterial()
 {
 	shader.attachShader(".\\src\\ShaderSource\\diffuse.vs", sag::VERTEX);
 	shader.attachShader(".\\src\\ShaderSource\\diffuse.fs", sag::FRAGMENT);
@@ -20,17 +18,13 @@ CubeMaterial::CubeMaterial()
 	shader.link();
 }
 
-void CubeMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights)
+void FloorMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights)
 {
 	shader.use();
-	// Kd: diffuse reflectivity - fraction of incoming light being scattered
+
 	shader.setUniform("Kd", 0.9f, 0.5f, 0.3f);
-	// Ld: light source intensity
 	shader.setUniform("Ld", 1.0f, 1.0f, 1.0f);
-	glm::vec4 lightPos;
-	if (lights.size() > 0)
-		lightPos = glm::vec4(lights.back()->getPosition(), 1.0f);
-	shader.setUniform("LightPosition", view * lightPos);
+	shader.setUniform("LightPosition", view * glm::vec4(2.0f, 1.0f, 0.5f, 1.0f));
 
 	glm::mat4 mv = view * model;
 	shader.setUniform("ModelViewMatrix", mv);

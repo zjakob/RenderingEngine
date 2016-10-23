@@ -6,6 +6,7 @@
 #include <GL/glew.h>
 
 #include "../Camera/Camera.h"
+#include "../Light.h"
 #include "../Scene/SceneNode.h"
 #include "RenderWindow.h"
 
@@ -20,7 +21,7 @@ public:
 	~OpenGLRenderer();
 
 	void init();
-	void render(const std::list<RenderableObject*>& renderableSceneNodes, const Camera& camera);
+	void render(const Camera& camera, const std::list<Light*>& lights, const std::list<RenderableObject*>& renderableObjects);
 
 private:
 	RenderWindow& renderWindow;

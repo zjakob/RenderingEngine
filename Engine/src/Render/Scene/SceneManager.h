@@ -5,6 +5,7 @@
 
 #include "SceneNode.h"
 #include "RenderableObject.h"
+#include "../Light.h"
 #include "../Camera/Camera.h"
 
 
@@ -24,6 +25,10 @@ public:
 	const Camera& getMainCamera() const { return *mainCamera;  }
 	const std::list<RenderableObject*>& getRenderableObjects() const;
 
+	void SceneManager::registerLight(Light& obj);
+	void SceneManager::deregisterLight(Light& obj);
+	const std::list<Light*>& SceneManager::getLights() const;
+
 
 private:
 	SceneManager();
@@ -37,6 +42,7 @@ private:
 	std::shared_ptr<SceneNode> rootSceneNode;
 	const Camera* mainCamera;
 	std::list<RenderableObject*> renderableObjects;
+	std::list<Light*> lights;
 
 };
 
