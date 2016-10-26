@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Entities\Floor">
       <UniqueIdentifier>{cfc75765-98c4-4cfe-9d67-22254c4bb201}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Light">
+      <UniqueIdentifier>{7b5f3f7d-2822-48b7-b3d5-e2b2f9d9ab97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -51,6 +54,15 @@
     <ClCompile Include="src\Entities\Floor\FloorEntity.cpp">
       <Filter>Source Files\Entities\Floor</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entities\Light\SphereGeometry.cpp">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Light\LightEntity.cpp">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Light\LightMaterial.cpp">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GlfwRenderWindow.h">
@@ -76,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="src\Entities\Floor\FloorMaterial.h">
       <Filter>Source Files\Entities\Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Light\SphereGeometry.h">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Light\LightEntity.h">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Light\LightMaterial.h">
+      <Filter>Source Files\Entities\Light</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

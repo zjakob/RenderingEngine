@@ -63,10 +63,15 @@ void SceneNode::detachAndDestroySceneNode()
 
 void SceneNode::updateChildren()
 {
-	auto worldMatrix = this->getWorldTransformation();
 	for (auto& obj : moveabelObjects)
 	{
+		auto worldMatrix = this->getWorldTransformation();
 		obj->setTransformation(worldMatrix);
+	}
+
+	for (auto& node : childSceneNodes)
+	{
+		node->updateChildren();
 	}
 }
 
@@ -85,7 +90,7 @@ const glm::mat4& SceneNode::getWorldTransformation() const
 {
 	if (auto parent = this->parent.lock())
 		if (parent->parent.expired()) // root-node's parent points to nullptr and is thus expired
-			return glm::mat4(1.0f) * this->modelMatrix;
+			return this->modelMatrix;
 		else
 			return parent->getWorldTransformation() * this->modelMatrix;
 	else

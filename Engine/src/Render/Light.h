@@ -3,7 +3,7 @@
 
 #include "./Scene/MoveableObject.h"
 
-#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 namespace sag
@@ -20,9 +20,10 @@ public:
 
 	}
 
-	glm::vec3 getPosition()
+	glm::vec4 getPosition()
 	{
-		return glm::vec3(this->modelMatrix[3]); // return position vector of transformation matrix
+		auto test = this->modelMatrix * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+		return test;
 	}
 
 	LightType getType() { return type; }

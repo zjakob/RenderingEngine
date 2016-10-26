@@ -36,10 +36,10 @@ void OpenGLRenderer::init()
 void OpenGLRenderer::render(const Camera& camera, const std::list<Light*>& lights, const std::list<RenderableObject*>& renderableObjects)
 {
 	// clear
-	static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
+	static const GLfloat clearColor[] = { 0.8f, 0.8f, 0.9f, 1.0f };
 	static const GLfloat one = 1.0f;
 
-	glClearBufferfv(GL_COLOR, 0, green);
+	glClearBufferfv(GL_COLOR, 0, clearColor);
 	glClearBufferfv(GL_DEPTH, 0, &one);
 
 	const glm::mat4& projection = camera.getProjectionMatrix();

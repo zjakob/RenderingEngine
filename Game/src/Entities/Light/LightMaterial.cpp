@@ -1,4 +1,6 @@
-#include "FloorMaterial.h"
+#include "LightMaterial.h"
+
+#include <Render\Light.h>
 
 #include <glm/vec4.hpp>
 #include <glm/mat3x3.hpp>
@@ -7,7 +9,7 @@ using namespace sag;
 using namespace sagame;
 
 
-FloorMaterial::FloorMaterial()
+LightMaterial::LightMaterial()
 {
 	shader.attachShader(".\\src\\ShaderSource\\solidcolor.vs", sag::VERTEX);
 	shader.attachShader(".\\src\\ShaderSource\\solidcolor.fs", sag::FRAGMENT);
@@ -17,9 +19,9 @@ FloorMaterial::FloorMaterial()
 	shader.link();
 }
 
-void FloorMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights)
+void LightMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights)
 {
 	shader.use();
-	shader.setUniform("Color", glm::vec4(0.3f, 0.5f, 0.3f, 1.0f));
+	shader.setUniform("Color", glm::vec4(1.0f, 1.0f, 0.9f, 1.0f));
 	shader.setUniform("MVP", modelViewProjection);
 }

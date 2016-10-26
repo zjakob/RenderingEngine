@@ -22,7 +22,7 @@ public:
 
 	}
 
-	virtual void render(const glm::mat4& view, const glm::mat4& projection, const std::list<Light*>& lights) = 0;
+	virtual void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights) = 0;
 
 protected:
 	std::unique_ptr<Material> material;

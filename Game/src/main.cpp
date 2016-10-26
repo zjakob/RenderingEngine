@@ -26,6 +26,7 @@
 
 #include "GlfwRenderWindow.h"
 #include ".\Entities\Cube\CubeEntity.h"
+#include ".\Entities\Light\LightEntity.h"
 #include ".\Entities\Floor\FloorEntity.h"
 #include ".\Entities\Player.h"
 #include <Render\Light.h>
@@ -115,7 +116,7 @@ int main(void)
 	// set cursor pos to center of screen for mouse movement
 	glfwSetCursorPos(window.getWindow(), screenCenterX, screenCenterY);
 
-	Camera mainCamera(windowWidth / float(windowHeight), 90.0f);
+	Camera mainCamera(windowWidth / float(windowHeight), 70.0f);
 
 	Player player(std::move(mainCamera));
 	player.setPosition(glm::vec3(0.0f, 1.0f, 1.0f));
@@ -128,7 +129,7 @@ int main(void)
 	// TODO: encapsulate into "InputManager"
 	keyDownManager.addEventCallback<KeyDownEvent>(std::bind(&Player::handleKeyDownEvent, &player, std::placeholders::_1));
 	mouseMoveManager.addEventCallback<MouseMoveEvent>(std::bind(&Player::handleMouseMoveEvent, &player, std::placeholders::_1));
-
+	
 	CubeEntity cube;
 	sceneManager.registerRenderableObject(cube);
 	cube.setPosition(glm::vec3(0.0f, 0.5f, 0.0f));
@@ -137,16 +138,14 @@ int main(void)
 	sceneManager.registerRenderableObject(floor);
 	floor.scale(glm::vec3(10.0f, 0.1f, 10.0f));
 	floor.setPosition(glm::vec3(0.0f, -0.05f, 0.0f));
+	
+	LightEntity lightEntity;
+	sceneManager.registerRenderableObject(lightEntity);
+	sceneManager.registerLight(lightEntity.getLight());
+	lightEntity.setPosition(glm::vec3(2.0f, 1.5f, 0.0f));
 
-	Light pointLight(LightType::Point);
-	sceneManager.registerLight(pointLight);
-	auto pointLightNode = sceneManager.getRootSceneNode().lock()->createChildSceneNode();
-	if (auto lockedSceneNode = pointLightNode.lock())
-	{
-		lockedSceneNode->attachObject(pointLight);
-		lockedSceneNode->setLocalTransformation(glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 1.0f, 2.5f)));
-	}
-
+	float lightRotationAngle = glm::radians(45.0f);
+	glm::vec3 lightRotationAxis(0.0f, 1.0f, 0.0f);
 
 	while (!window.shouldClose())
 	{
@@ -155,15 +154,14 @@ int main(void)
 		lastTime = currentTime;
 
 		glfwPollEvents();
-		//glfwWaitEvents();
 		do_movement();
 		keyDownManager.update();
 		mouseMoveManager.update();
 
+		lightEntity.rotate(lightRotationAngle * deltaTime, lightRotationAxis);
 		
 		renderer.render(sceneManager.getMainCamera(), sceneManager.getLights(), sceneManager.getRenderableObjects());
 	}
 
-	
 	return 0;
 }

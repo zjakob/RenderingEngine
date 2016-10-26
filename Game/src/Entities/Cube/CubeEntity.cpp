@@ -22,9 +22,9 @@ CubeEntity::CubeEntity() :
 	}
 }
 
-void CubeEntity::render(const glm::mat4& view, const glm::mat4& projection, const std::list<Light*>& lights)
+void CubeEntity::render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights)
 {
-	glm::mat4 mvp = projection * modelMatrix;
+	glm::mat4 mvp = viewProjection * modelMatrix;
 	material->apply(modelMatrix, view, mvp, lights);
 	geometry->draw();
 }

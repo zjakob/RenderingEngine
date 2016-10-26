@@ -29,7 +29,7 @@ void CubeMaterial::apply(const glm::mat4& model, const glm::mat4& view, const gl
 	shader.setUniform("Ld", 1.0f, 1.0f, 1.0f);
 	glm::vec4 lightPos;
 	if (lights.size() > 0)
-		lightPos = glm::vec4(lights.back()->getPosition(), 1.0f);
+		lightPos = lights.back()->getPosition();
 	shader.setUniform("LightPosition", view * lightPos);
 
 	glm::mat4 mv = view * model;
