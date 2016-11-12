@@ -5,7 +5,7 @@
 
 #include "SceneNode.h"
 #include "RenderableObject.h"
-#include "../Light.h"
+#include "../Light/Light.h"
 #include "../Camera/Camera.h"
 
 

@@ -5,8 +5,8 @@
 
 using namespace sag;
 
-constexpr float defaultNear = 0.01f;
-constexpr float defaultFar = 1000.0f;
+constexpr float defaultNear = 0.1f;
+constexpr float defaultFar = 100.0f;
 
 Camera::Camera(float aspectRatio, float fovyDeg) :
 	fovy(glm::radians(fovyDeg)),

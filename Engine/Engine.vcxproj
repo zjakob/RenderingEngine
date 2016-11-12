@@ -20,18 +20,23 @@
     <ClInclude Include="src\Exception\OpenGLException.h" />
     <ClInclude Include="src\Render\Camera\Camera.h" />
     <ClInclude Include="src\Render\Geometry\Geometry.h" />
-    <ClInclude Include="src\Render\Light.h" />
+    <ClInclude Include="src\Render\Light\DirectionalLight.h" />
+    <ClInclude Include="src\Render\Light\Light.h" />
     <ClInclude Include="src\Render\Material\Material.h" />
     <ClInclude Include="src\Render\Material\Shader\GlslShaderProgram.h" />
     <ClInclude Include="src\Render\Renderer\OpenGLRenderer.h" />
+    <ClInclude Include="src\Render\Renderer\RenderPass\RenderPass.h" />
+    <ClInclude Include="src\Render\Renderer\RenderPass\RenderPassData.h" />
     <ClInclude Include="src\Render\Renderer\RenderWindow.h" />
     <ClInclude Include="src\Render\Scene\MoveableObject.h" />
     <ClInclude Include="src\Render\Scene\RenderableObject.h" />
     <ClInclude Include="src\Render\Scene\SceneManager.h" />
     <ClInclude Include="src\Render\Scene\SceneNode.h" />
     <ClInclude Include="src\util\ComparableObject.h" />
+    <ClInclude Include="src\util\Exceptions\InvalidArgumentException.h" />
     <ClInclude Include="src\util\ioHelper\fileHelper.h" />
     <ClInclude Include="src\util\ioHelper\keyboardHelper.h" />
+    <ClInclude Include="src\util\ioHelper\PortablePixMapImageHelper.h" />
     <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
   <ItemGroup>

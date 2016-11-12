@@ -22,10 +22,10 @@ CubeEntity::CubeEntity() :
 	}
 }
 
-void CubeEntity::render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights)
+void CubeEntity::render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights, sag::RenderPassData* renderPassDataExchange)
 {
 	glm::mat4 mvp = viewProjection * modelMatrix;
-	material->apply(modelMatrix, view, mvp, lights);
+	material->apply(modelMatrix, view, mvp, lights, renderPassDataExchange);
 	geometry->draw();
 }
 

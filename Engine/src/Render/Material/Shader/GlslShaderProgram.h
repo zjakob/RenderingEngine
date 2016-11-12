@@ -45,6 +45,7 @@ public:
 	void setUniform(const char* name, const glm::vec4& v);
 	void setUniform(const char* name, const glm::mat3& m);
 	void setUniform(const char* name, const glm::mat4& m);
+	void setUniform(const char* name, int val);
 	int getUniformLocation(const char* name);
 
 	GLint getAttribLocation(const char* name);
@@ -54,6 +55,7 @@ public:
 	void attachShader(const char* file, GlslShaderType type);
 	void link();
 	void use() const;
+	GLuint getProgramHandle() { return shaderProgramHandle; }
 
 private:
 	GLuint shaderProgramHandle;

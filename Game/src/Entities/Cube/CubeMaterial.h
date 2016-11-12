@@ -12,7 +12,7 @@ class CubeMaterial : public sag::Material
 public:
 	CubeMaterial();
 	
-	virtual void apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights) override;
+	virtual void apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange) override;
 
 private:
 

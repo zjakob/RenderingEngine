@@ -5,7 +5,8 @@
 
 #include <Render\Scene\RenderableObject.h>
 #include <Render\Scene\SceneNode.h>
-#include <Render\Light.h>
+#include <Render/Light/DirectionalLight.h>
+#include <Render/Renderer/RenderPass/RenderPassData.h>
 
 #include <memory>
 
@@ -13,13 +14,14 @@
 namespace sagame
 {
 
-class LightEntity : public sag::RenderableObject
+class DirectionalLightEntity : public sag::RenderableObject
 {
 public:
-	LightEntity();
+	DirectionalLightEntity(glm::vec3 center, float fovyDeg, float aspect);
 
-	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights) override;
+	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange) override;
 
+	void setDirectionalLightCenter(glm::vec3& center) { this->light; }
 	void setPosition(glm::vec3& position);
 	void rotate(float angle, glm::vec3& rotationAxis);
 
@@ -31,7 +33,7 @@ public:
 private:
 	std::weak_ptr<sag::SceneNode> translationNode;
 	std::weak_ptr<sag::SceneNode> rotationNode;
-	sag::Light light;
+	sag::DirectionalLight light;
 
 
 };

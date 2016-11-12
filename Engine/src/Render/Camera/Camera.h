@@ -2,6 +2,7 @@
 #define SAG_CAMERA_H
 
 #include <glm\mat4x4.hpp>
+#include <glm/glm.hpp>
 
 #include "../Scene/MoveableObject.h"
 
@@ -16,6 +17,7 @@ public:
 	Camera(float aspectRatio, float fovyDeg);
 
 	const glm::mat4& getProjectionMatrix() const;
+	float getFovy() { return glm::degrees(fovy); }
 
 private:
 	float fovy;

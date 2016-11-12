@@ -23,13 +23,15 @@
 
 #include <Render\Renderer\OpenGLRenderer.h>
 #include <Render\Scene\SceneManager.h>
+#include "RenderPasses\RenderToScreenPass.h"
+#include "RenderPasses\ShadowMapPass.h"
 
 #include "GlfwRenderWindow.h"
 #include ".\Entities\Cube\CubeEntity.h"
-#include ".\Entities\Light\LightEntity.h"
+#include ".\Entities\Light\DirectionalLightEntity.h"
 #include ".\Entities\Floor\FloorEntity.h"
 #include ".\Entities\Player.h"
-#include <Render\Light.h>
+#include <Render/Light/Light.h>
 
 
 using namespace sag;
@@ -110,13 +112,12 @@ int main(void)
 
 	glfwSetKeyCallback(window.getWindow(), key_callback);
 	glfwSetCursorPosCallback(window.getWindow(), cursor_pos_callback);
-
 	// disable mouse cursor so we can reset it to the center after it moved
 	glfwSetInputMode(window.getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	// set cursor pos to center of screen for mouse movement
 	glfwSetCursorPos(window.getWindow(), screenCenterX, screenCenterY);
 
-	Camera mainCamera(windowWidth / float(windowHeight), 70.0f);
+	Camera mainCamera(window.getWidth() / float(window.getHeight()), 70.0f);
 
 	Player player(std::move(mainCamera));
 	player.setPosition(glm::vec3(0.0f, 1.0f, 1.0f));
@@ -125,6 +126,12 @@ int main(void)
 	sceneManager.setMainCamera(player.getCamera());
 
 	OpenGLRenderer renderer(window);
+	float shadowMapWidth = 1024.0f;
+	float shadowMapHeight = 1024.0f;
+	ShadowMapPass shadowMapPass(shadowMapWidth, shadowMapHeight);
+	renderer.addRenderPass(&shadowMapPass);
+	RenderToScreenPass standardPass(window.getWidth(), window.getHeight());
+	renderer.addRenderPass(&standardPass);
 
 	// TODO: encapsulate into "InputManager"
 	keyDownManager.addEventCallback<KeyDownEvent>(std::bind(&Player::handleKeyDownEvent, &player, std::placeholders::_1));
@@ -136,13 +143,13 @@ int main(void)
 
 	FloorEntity floor;
 	sceneManager.registerRenderableObject(floor);
-	floor.scale(glm::vec3(10.0f, 0.1f, 10.0f));
+	floor.scale(glm::vec3(6.5f, 0.01f, 6.5f));
 	floor.setPosition(glm::vec3(0.0f, -0.05f, 0.0f));
 	
-	LightEntity lightEntity;
-	sceneManager.registerRenderableObject(lightEntity);
-	sceneManager.registerLight(lightEntity.getLight());
-	lightEntity.setPosition(glm::vec3(2.0f, 1.5f, 0.0f));
+	DirectionalLightEntity directionalLightEntity(glm::vec3(0.0f), mainCamera.getFovy(), shadowMapWidth/shadowMapHeight);
+	sceneManager.registerRenderableObject(directionalLightEntity);
+	sceneManager.registerLight(directionalLightEntity.getLight());
+	directionalLightEntity.setPosition(glm::vec3(2.8f, 2.3f, 0.0f));
 
 	float lightRotationAngle = glm::radians(45.0f);
 	glm::vec3 lightRotationAxis(0.0f, 1.0f, 0.0f);
@@ -158,9 +165,9 @@ int main(void)
 		keyDownManager.update();
 		mouseMoveManager.update();
 
-		lightEntity.rotate(lightRotationAngle * deltaTime, lightRotationAxis);
+		directionalLightEntity.rotate(lightRotationAngle * deltaTime, lightRotationAxis);
 		
-		renderer.render(sceneManager.getMainCamera(), sceneManager.getLights(), sceneManager.getRenderableObjects());
+		renderer.render(sceneManager);
 	}
 
 	return 0;

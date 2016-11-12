@@ -1,13 +1,10 @@
-#version 430 core
+#version 430
 
-out vec4 color;
+uniform vec4 Color;
 
-in VS_OUT
+layout ( location = 0 ) out vec4 FragColor;
+
+void main()
 {
-	vec4 color;
-} fs_in;
-
-void main(void)
-{
-	color = fs_in.color;
+    FragColor = Color;
 }

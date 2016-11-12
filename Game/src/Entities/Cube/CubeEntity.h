@@ -5,7 +5,8 @@
 
 #include <Render\Scene\RenderableObject.h>
 #include <Render\Scene\SceneNode.h>
-#include <Render\Light.h>
+#include <Render/Light/Light.h>
+#include <Render/Renderer/RenderPass/RenderPassData.h>
 
 #include <memory>
 
@@ -18,7 +19,7 @@ class CubeEntity : public sag::RenderableObject
 public:
 	CubeEntity();
 
-	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights) override;
+	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange) override;
 
 	void setPosition(glm::vec3& position);
 

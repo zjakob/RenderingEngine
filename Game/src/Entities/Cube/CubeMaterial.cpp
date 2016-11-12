@@ -1,6 +1,6 @@
 #include "CubeMaterial.h"
 
-#include <Render\Light.h>
+#include <Render/Light/Light.h>
 
 #include <glm/vec4.hpp>
 #include <glm/mat3x3.hpp>
@@ -20,7 +20,7 @@ CubeMaterial::CubeMaterial()
 	shader.link();
 }
 
-void CubeMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights)
+void CubeMaterial::apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange)
 {
 	shader.use();
 	// Kd: diffuse reflectivity - fraction of incoming light being scattered

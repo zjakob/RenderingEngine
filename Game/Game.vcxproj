@@ -94,12 +94,14 @@ xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)</C
     <ClCompile Include="src\Entities\Floor\FloorEntity.cpp" />
     <ClCompile Include="src\Entities\Floor\FloorGeometry.cpp" />
     <ClCompile Include="src\Entities\Floor\FloorMaterial.cpp" />
-    <ClCompile Include="src\Entities\Light\LightEntity.cpp" />
+    <ClCompile Include="src\Entities\Light\DirectionalLightEntity.cpp" />
     <ClCompile Include="src\Entities\Light\SphereGeometry.cpp" />
     <ClCompile Include="src\Entities\Light\LightMaterial.cpp" />
     <ClCompile Include="src\Entities\Player.cpp" />
     <ClCompile Include="src\GlfwRenderWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RenderPasses\RenderToScreenPass.cpp" />
+    <ClCompile Include="src\RenderPasses\ShadowMapPass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Cube\CubeEntity.h" />
@@ -108,11 +110,13 @@ xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)</C
     <ClInclude Include="src\Entities\Floor\FloorEntity.h" />
     <ClInclude Include="src\Entities\Floor\FloorGeometry.h" />
     <ClInclude Include="src\Entities\Floor\FloorMaterial.h" />
-    <ClInclude Include="src\Entities\Light\LightEntity.h" />
+    <ClInclude Include="src\Entities\Light\DirectionalLightEntity.h" />
     <ClInclude Include="src\Entities\Light\SphereGeometry.h" />
     <ClInclude Include="src\Entities\Light\LightMaterial.h" />
     <ClInclude Include="src\Entities\Player.h" />
     <ClInclude Include="src\GlfwRenderWindow.h" />
+    <ClInclude Include="src\RenderPasses\RenderToScreenPass.h" />
+    <ClInclude Include="src\RenderPasses\ShadowMapPass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

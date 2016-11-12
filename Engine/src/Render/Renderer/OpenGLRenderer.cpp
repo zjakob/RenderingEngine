@@ -1,6 +1,9 @@
 
 #include "OpenGLRenderer.h"
 
+#include "../Camera/Camera.h"
+#include "../Light/Light.h"
+#include "../Scene/SceneNode.h"
 #include "../../Exception/OpenGLException.h"
 
 
@@ -9,49 +12,25 @@ using namespace sag;
 OpenGLRenderer::OpenGLRenderer(RenderWindow& renderWindow) :
 	renderWindow(renderWindow)
 {
-	init();
-}
-
-OpenGLRenderer::~OpenGLRenderer()
-{
-}
-
-void OpenGLRenderer::init()
-{
 	if (glewInit())
 	{
 		throw OpenGLException("Failed to initialize glew");
 	}
 	GLenum error = glGetError(); // get GL-error 1280 to clear glGetError
-
-	glEnable(GL_CULL_FACE);
-	// glFrontFace(GL_CW);
-
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-
-	glViewport(0, 0, renderWindow.getWidth(), renderWindow.getHeight());
 }
 
-void OpenGLRenderer::render(const Camera& camera, const std::list<Light*>& lights, const std::list<RenderableObject*>& renderableObjects)
+void OpenGLRenderer::render(SceneManager& scene)
 {
-	// clear
-	static const GLfloat clearColor[] = { 0.8f, 0.8f, 0.9f, 1.0f };
-	static const GLfloat one = 1.0f;
-
-	glClearBufferfv(GL_COLOR, 0, clearColor);
-	glClearBufferfv(GL_DEPTH, 0, &one);
-
-	const glm::mat4& projection = camera.getProjectionMatrix();
-	const glm::mat4& view = camera.getTransformation();
-	const glm::mat4 viewProjection = projection * view;
-
-	// render
-	for (auto& renderableObj : renderableObjects)
+	std::unique_ptr<RenderPassData> renderPassDataExchange = std::make_unique<RenderPassData>();
+	for (auto& renderPass : renderPasses)
 	{
-		renderableObj->render(view, viewProjection, lights);
+		renderPass->render(scene, renderPassDataExchange.get());
 	}
 
-	// swap buffer
 	renderWindow.swapBuffer();
+}
+
+void OpenGLRenderer::addRenderPass(RenderPass* pass)
+{
+	renderPasses.push_back(pass);
 }

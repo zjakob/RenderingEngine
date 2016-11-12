@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Entities\Light">
       <UniqueIdentifier>{7b5f3f7d-2822-48b7-b3d5-e2b2f9d9ab97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\RenderPasses">
+      <UniqueIdentifier>{51c6af4a-e87b-4429-9cb8-8125ffc8ae89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -57,11 +60,17 @@
     <ClCompile Include="src\Entities\Light\SphereGeometry.cpp">
       <Filter>Source Files\Entities\Light</Filter>
     </ClCompile>
-    <ClCompile Include="src\Entities\Light\LightEntity.cpp">
-      <Filter>Source Files\Entities\Light</Filter>
-    </ClCompile>
     <ClCompile Include="src\Entities\Light\LightMaterial.cpp">
       <Filter>Source Files\Entities\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Light\DirectionalLightEntity.cpp">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderPasses\RenderToScreenPass.cpp">
+      <Filter>Source Files\RenderPasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderPasses\ShadowMapPass.cpp">
+      <Filter>Source Files\RenderPasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,11 +101,17 @@
     <ClInclude Include="src\Entities\Light\SphereGeometry.h">
       <Filter>Source Files\Entities\Light</Filter>
     </ClInclude>
-    <ClInclude Include="src\Entities\Light\LightEntity.h">
-      <Filter>Source Files\Entities\Light</Filter>
-    </ClInclude>
     <ClInclude Include="src\Entities\Light\LightMaterial.h">
       <Filter>Source Files\Entities\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Light\DirectionalLightEntity.h">
+      <Filter>Source Files\Entities\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderPasses\RenderToScreenPass.h">
+      <Filter>Source Files\RenderPasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderPasses\ShadowMapPass.h">
+      <Filter>Source Files\RenderPasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -49,6 +49,15 @@
     <Filter Include="Render\Scene">
       <UniqueIdentifier>{ffad9554-8302-4200-83cd-57463181e362}</UniqueIdentifier>
     </Filter>
+    <Filter Include="util\Exceptions">
+      <UniqueIdentifier>{ffede191-90c1-4b7a-a49a-6484f70e0cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Light">
+      <UniqueIdentifier>{1347783d-e339-4c97-9a44-6737436923dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Renderer\RenderPass">
+      <UniqueIdentifier>{eebf1f34-6248-4e6c-aefd-08b059b00b91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\EventSystem\EventManager.h">
@@ -114,8 +123,23 @@
     <ClInclude Include="src\util\ioHelper\fileHelper.h">
       <Filter>util\ioHelper</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Light.h">
-      <Filter>Render</Filter>
+    <ClInclude Include="src\util\ioHelper\PortablePixMapImageHelper.h">
+      <Filter>util\ioHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\Exceptions\InvalidArgumentException.h">
+      <Filter>util\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Light\DirectionalLight.h">
+      <Filter>Render\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Light\Light.h">
+      <Filter>Render\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Renderer\RenderPass\RenderPass.h">
+      <Filter>Render\Renderer\RenderPass</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Renderer\RenderPass\RenderPassData.h">
+      <Filter>Render\Renderer\RenderPass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

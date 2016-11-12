@@ -4,7 +4,8 @@
 #include "MoveableObject.h"
 #include "../Geometry/Geometry.h"
 #include "../Material/Material.h"
-#include "../Light.h"
+#include "../Light/Light.h"
+#include "../Renderer/RenderPass/RenderPassData.h"
 
 #include <utility>
 #include <memory>
@@ -22,7 +23,7 @@ public:
 
 	}
 
-	virtual void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights) = 0;
+	virtual void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights, RenderPassData* renderPassDataExchange) = 0;
 
 protected:
 	std::unique_ptr<Material> material;

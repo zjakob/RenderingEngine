@@ -5,7 +5,8 @@
 #include <GL/glew.h>
 
 #include "Shader/GlslShaderProgram.h"
-#include "../Light.h"
+#include "../Light/Light.h"
+#include "../Renderer/RenderPass/RenderPassData.h"
 
 namespace sag
 {
@@ -21,7 +22,7 @@ public:
 	Material(const Material& other) = default;
 	Material& operator=(const Material& other) = default;
 	
-	virtual void apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<Light*>& lights) = 0;
+	virtual void apply(const glm::mat4& model, const glm::mat4& view, const glm::mat4& modelViewProjection, const std::list<Light*>& lights, RenderPassData* renderPassDataExchange) = 0;
 
 protected:
 	GlslShaderProgram shader;

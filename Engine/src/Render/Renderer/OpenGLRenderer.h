@@ -3,12 +3,9 @@
 
 #include <list>
 
-#include <GL/glew.h>
-
-#include "../Camera/Camera.h"
-#include "../Light.h"
-#include "../Scene/SceneNode.h"
 #include "RenderWindow.h"
+#include "./RenderPass/RenderPass.h"
+#include "../Scene/SceneManager.h"
 
 
 namespace sag
@@ -18,13 +15,13 @@ class OpenGLRenderer
 {
 public:
 	OpenGLRenderer(RenderWindow& renderWindow);
-	~OpenGLRenderer();
 
-	void init();
-	void render(const Camera& camera, const std::list<Light*>& lights, const std::list<RenderableObject*>& renderableObjects);
+	void render(SceneManager& scene);
+	void addRenderPass(RenderPass* pass);
 
 private:
 	RenderWindow& renderWindow;
+	std::list<RenderPass*> renderPasses;
 
 };
 
