@@ -1,10 +1,10 @@
 #ifndef SAGAME_SHADOWMAP_PASS_H
 #define SAGAME_SHADOWMAP_PASS_H
 
-#include <Render\Material\Shader\GlslShaderProgram.h>
-#include <Scene\SceneManager.h>
-#include <Render\Renderer\RenderPass\RenderPass.h>
-#include <Render\Renderer\RenderPass\RenderPassData.h>
+#include <Render/Material/Shader/GlslShaderProgram.h>
+#include <Scene/SceneManager.h>
+#include <Render/Renderer/RenderPass/RenderPass.h>
+#include <Render/Renderer/RenderPass/RenderPassData.h>
 
 
 namespace sagame

@@ -2,7 +2,7 @@
 
 #include <glm/vec4.hpp>
 #include <glm/mat3x3.hpp>
-#include <glm\gtc\matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include <Render/Light/DirectionalLight.h>
 
@@ -12,8 +12,8 @@ using namespace sagame;
 
 FloorMaterial::FloorMaterial()
 {
-	shader.attachShader(".\\src\\ShaderSource\\shadowmapsecondpass.vs", sag::VERTEX);
-	shader.attachShader(".\\src\\ShaderSource\\shadowmapsecondpass.fs", sag::FRAGMENT);
+	shader.attachShader("./src/ShaderSource/shadowmapsecondpass.vs", sag::VERTEX);
+	shader.attachShader("./src/ShaderSource/shadowmapsecondpass.fs", sag::FRAGMENT);
 	//shader.bindAttribLocation(0, "VertexPosition");
 	//shader.bindAttribLocation(1, "VertexNormal");
 	shader.link();

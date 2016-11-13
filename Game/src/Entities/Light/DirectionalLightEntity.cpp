@@ -1,7 +1,7 @@
 
 #include "DirectionalLightEntity.h"
 
-#include <Scene\SceneManager.h>
+#include <Scene/SceneManager.h>
 
 #include "LightMaterial.h"
 #include "SphereGeometry.h"

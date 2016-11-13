@@ -2,9 +2,9 @@
 #define SAG_KEYBOARD_EVENT_MANAGER_H
 
 #include "EventManager.h"
-#include "Event\KeyDownEvent.h"
-#include "Listener\Strategy\SafeEventCallbackStrategy.h"
-#include "Dispatcher\QueuedEventDispatchStrategy.h"
+#include "Event/KeyDownEvent.h"
+#include "Listener/Strategy/SafeEventCallbackStrategy.h"
+#include "Dispatcher/QueuedEventDispatchStrategy.h"
 
 namespace sag
 {

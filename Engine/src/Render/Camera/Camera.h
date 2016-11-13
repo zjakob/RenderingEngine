@@ -1,7 +1,7 @@
 #ifndef SAG_CAMERA_H
 #define SAG_CAMERA_H
 
-#include <glm\mat4x4.hpp>
+#include <glm/mat4x4.hpp>
 #include <glm/glm.hpp>
 
 #include "../../Scene/MoveableObject.h"

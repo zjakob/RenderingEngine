@@ -1,12 +1,12 @@
 #ifndef SAGAME_PLAYER_H
 #define SAGAME_PLAYER_H
 
-#include <EventSystem\Event\KeyDownEvent.h>
-#include <EventSystem\Event\MouseMoveEvent.h>
+#include <EventSystem/Event/KeyDownEvent.h>
+#include <EventSystem/Event/MouseMoveEvent.h>
 
-#include <Render\Camera\Camera.h>
+#include <Render/Camera/Camera.h>
 
-#include <Scene\SceneNode.h>
+#include <Scene/SceneNode.h>
 
 
 namespace sagame

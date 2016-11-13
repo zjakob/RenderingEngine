@@ -3,7 +3,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include <Render\Renderer\RenderWindow.h>
+#include <Render/Renderer/RenderWindow.h>
 
 
 namespace sagame

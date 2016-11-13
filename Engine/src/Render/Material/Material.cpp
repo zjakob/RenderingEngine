@@ -3,7 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <utility>
 
-#include "..\..\util\ShaderHelper\glslHelper.h"
+#include "../../util/ShaderHelper/glslHelper.h"
 
 
 using namespace sag;

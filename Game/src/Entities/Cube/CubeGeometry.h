@@ -1,7 +1,7 @@
 #ifndef SAGAME_CUBE_GEOMETRY_H
 #define SAGAME_CUBE_GEOMETRY_H
 
-#include <Render\Geometry\Geometry.h>
+#include <Render/Geometry/Geometry.h>
 #include <vector>
 #include <GL/glew.h>
 

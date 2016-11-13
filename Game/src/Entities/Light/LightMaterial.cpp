@@ -11,8 +11,8 @@ using namespace sagame;
 
 LightMaterial::LightMaterial()
 {
-	shader.attachShader(".\\src\\ShaderSource\\solidcolor.vs", sag::VERTEX);
-	shader.attachShader(".\\src\\ShaderSource\\solidcolor.fs", sag::FRAGMENT);
+	shader.attachShader("./src/ShaderSource/solidcolor.vs", sag::VERTEX);
+	shader.attachShader("./src/ShaderSource/solidcolor.fs", sag::FRAGMENT);
 
 	shader.bindAttribLocation(0, "VertexPosition");
 

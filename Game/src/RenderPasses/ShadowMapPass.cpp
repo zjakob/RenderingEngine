@@ -1,11 +1,12 @@
 
 #include "ShadowMapPass.h"
 
-#include <glm\gtc\matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <GL/glew.h>
 
-#include <Render\Light\DirectionalLight.h>
-//#include <util\ioHelper\PortablePixMapImageHelper.h>
+#include <util/Exceptions/OpenGLException.h>
+#include <Render/Light/DirectionalLight.h>
+//#include <util/ioHelper/PortablePixMapImageHelper.h>
 
 using namespace sagame;
 
@@ -35,8 +36,8 @@ ShadowMapPass::ShadowMapPass(float shadowMapWidth, float shadowMapHeight) :
 
 void ShadowMapPass::setupShaders()
 {
-	shadowShader.attachShader(".\\src\\ShaderSource\\shadowmapfirstpass.vs", sag::VERTEX);
-	shadowShader.attachShader(".\\src\\ShaderSource\\shadowmapfirstpass.fs", sag::FRAGMENT);
+	shadowShader.attachShader("./src/ShaderSource/shadowmapfirstpass.vs", sag::VERTEX);
+	shadowShader.attachShader("./src/ShaderSource/shadowmapfirstpass.fs", sag::FRAGMENT);
 	//shadowShader.bindAttribLocation(0, "VertexPosition");
 	shadowShader.link();
 }
@@ -69,11 +70,9 @@ void ShadowMapPass::setupFBO()
 	glDrawBuffers(1, drawBuffers);
 
 	GLenum result = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-	if (result == GL_FRAMEBUFFER_COMPLETE) {
-		printf("Framebuffer is complete.\n");
-	}
-	else {
-		printf("Framebuffer is not complete.\n");
+	if (result != GL_FRAMEBUFFER_COMPLETE)
+	{
+		throw sag::OpenGLException("ShadowMap framebuffer incomplete.");
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

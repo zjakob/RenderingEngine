@@ -2,9 +2,9 @@
 #define SAG_MOUSE_EVENT_MANAGER_H
 
 #include "EventManager.h"
-#include "Event\MouseMoveEvent.h"
-#include "Listener\Strategy\SafeEventCallbackStrategy.h"
-#include "Dispatcher\QueuedEventDispatchStrategy.h"
+#include "Event/MouseMoveEvent.h"
+#include "Listener/Strategy/SafeEventCallbackStrategy.h"
+#include "Dispatcher/QueuedEventDispatchStrategy.h"
 
 namespace sag
 {

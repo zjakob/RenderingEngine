@@ -1,21 +1,20 @@
 
-#include <glm\vec3.hpp>
+#include <chrono>
+#include <glm/vec3.hpp>
 
-#include <Render\Renderer\OpenGLRenderer.h>
-#include <Scene\SceneManager.h>
-#include "RenderPasses\RenderToScreenPass.h"
-#include "RenderPasses\ShadowMapPass.h"
+#include <Render/Renderer/OpenGLRenderer.h>
+#include <Scene/SceneManager.h>
+#include "RenderPasses/RenderToScreenPass.h"
+#include "RenderPasses/ShadowMapPass.h"
 #include "GlfwRenderWindow.h"
 
-#include ".\Entities\Cube\CubeEntity.h"
-#include ".\Entities\Light\DirectionalLightEntity.h"
-#include ".\Entities\Floor\FloorEntity.h"
-#include ".\Entities\Player.h"
+#include "./Entities/Cube/CubeEntity.h"
+#include "./Entities/Light/DirectionalLightEntity.h"
+#include "./Entities/Floor/FloorEntity.h"
+#include "./Entities/Player.h"
 
-#include <EventSystem\MouseEventManager.h>
-#include <EventSystem\KeyboardEventManager.h>
-
-#include <chrono>
+#include <EventSystem/MouseEventManager.h>
+#include <EventSystem/KeyboardEventManager.h>
 
 using namespace sag;
 using namespace sagame;
