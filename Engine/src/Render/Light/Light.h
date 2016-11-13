@@ -1,7 +1,7 @@
 #ifndef SAG_LIGHT_H
 #define SAG_LIGHT_H
 
-#include "../Scene/MoveableObject.h"
+#include "../../Scene/MoveableObject.h"
 
 #include <glm/vec4.hpp>
 #include <glm/gtc/matrix_transform.hpp>

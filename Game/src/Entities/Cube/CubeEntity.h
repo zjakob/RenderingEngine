@@ -3,8 +3,8 @@
 
 #include <GL/glew.h>
 
-#include <Render\Scene\RenderableObject.h>
-#include <Render\Scene\SceneNode.h>
+#include <Render\RenderableObject.h>
+#include <Scene\SceneNode.h>
 #include <Render/Light/Light.h>
 #include <Render/Renderer/RenderPass/RenderPassData.h>
 

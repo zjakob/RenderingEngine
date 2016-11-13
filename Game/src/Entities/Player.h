@@ -6,7 +6,7 @@
 
 #include <Render\Camera\Camera.h>
 
-#include <Render\Scene\SceneNode.h>
+#include <Scene\SceneNode.h>
 
 
 namespace sagame

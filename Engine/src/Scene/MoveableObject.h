@@ -3,7 +3,7 @@
 
 #include <glm/mat4x4.hpp>
 
-#include "../../util/ComparableObject.h"
+#include "../util/ComparableObject.h"
 
 
 namespace sag

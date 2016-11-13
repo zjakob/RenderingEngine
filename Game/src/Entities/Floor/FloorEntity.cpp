@@ -1,7 +1,7 @@
 
 #include "FloorEntity.h"
 
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 
 #include "FloorMaterial.h"
 #include "FloorGeometry.h"

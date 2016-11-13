@@ -11,8 +11,8 @@
 #include <unordered_map>
 
 #include "MoveableObject.h"
-#include "RenderableObject.h"
-#include "../../util/ComparableObject.h"
+#include "../Render/RenderableObject.h"
+#include "../util/ComparableObject.h"
 
 
 namespace sag

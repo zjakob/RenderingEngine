@@ -1,7 +1,7 @@
 
 #include "CubeEntity.h"
 
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 
 #include "CubeMaterial.h"
 #include "CubeGeometry.h"

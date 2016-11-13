@@ -4,9 +4,9 @@
 #include <memory>
 
 #include "SceneNode.h"
-#include "RenderableObject.h"
-#include "../Light/Light.h"
-#include "../Camera/Camera.h"
+#include "../Render/RenderableObject.h"
+#include "../Render/Light/Light.h"
+#include "../Render/Camera/Camera.h"
 
 
 namespace sag

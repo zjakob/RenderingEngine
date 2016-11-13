@@ -4,7 +4,7 @@
 #include <glm\mat4x4.hpp>
 #include <glm/glm.hpp>
 
-#include "../Scene/MoveableObject.h"
+#include "../../Scene/MoveableObject.h"
 
 
 namespace sag

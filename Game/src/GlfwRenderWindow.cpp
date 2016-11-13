@@ -1,7 +1,7 @@
 
 #include "GlfwRenderWindow.h"
 
-#include <Exception/OpenGLException.h>
+#include <util/Exceptions/OpenGLException.h>
 
 #include <EventSystem\MouseEventManager.h>
 #include <EventSystem\KeyboardEventManager.h>

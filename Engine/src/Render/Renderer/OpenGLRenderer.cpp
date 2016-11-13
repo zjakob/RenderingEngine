@@ -3,8 +3,8 @@
 
 #include "../Camera/Camera.h"
 #include "../Light/Light.h"
-#include "../Scene/SceneNode.h"
-#include "../../Exception/OpenGLException.h"
+#include "../../Scene/SceneNode.h"
+#include "../../util/Exceptions/OpenGLException.h"
 
 
 using namespace sag;

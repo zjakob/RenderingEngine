@@ -25,9 +25,6 @@
     <Filter Include="util\ShaderHelper">
       <UniqueIdentifier>{1329693e-b394-4b6e-9d09-2de6859ff437}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Exception">
-      <UniqueIdentifier>{594947c0-8fb5-475c-94e3-f617812ec9d1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Render">
       <UniqueIdentifier>{280c4c20-f364-45dc-928e-c651eec6300a}</UniqueIdentifier>
     </Filter>
@@ -46,9 +43,6 @@
     <Filter Include="Render\Geometry">
       <UniqueIdentifier>{0bb45e98-00f6-43a0-a1ba-6fd8cb57dc6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Render\Scene">
-      <UniqueIdentifier>{ffad9554-8302-4200-83cd-57463181e362}</UniqueIdentifier>
-    </Filter>
     <Filter Include="util\Exceptions">
       <UniqueIdentifier>{ffede191-90c1-4b7a-a49a-6484f70e0cdf}</UniqueIdentifier>
     </Filter>
@@ -57,6 +51,9 @@
     </Filter>
     <Filter Include="Render\Renderer\RenderPass">
       <UniqueIdentifier>{eebf1f34-6248-4e6c-aefd-08b059b00b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{91eceee3-ad58-4413-9476-58e406db1813}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,9 +78,6 @@
     <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h">
       <Filter>EventSystem\Event</Filter>
     </ClInclude>
-    <ClInclude Include="src\Exception\OpenGLException.h">
-      <Filter>Exception</Filter>
-    </ClInclude>
     <ClInclude Include="src\Render\Renderer\OpenGLRenderer.h">
       <Filter>Render\Renderer</Filter>
     </ClInclude>
@@ -99,20 +93,8 @@
     <ClInclude Include="src\Render\Geometry\Geometry.h">
       <Filter>Render\Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Scene\SceneNode.h">
-      <Filter>Render\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Scene\SceneManager.h">
-      <Filter>Render\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Scene\MoveableObject.h">
-      <Filter>Render\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\util\ioHelper\keyboardHelper.h">
       <Filter>util\ioHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Scene\RenderableObject.h">
-      <Filter>Render\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\util\ComparableObject.h">
       <Filter>util</Filter>
@@ -147,6 +129,21 @@
     <ClInclude Include="src\EventSystem\KeyboardEventManager.h">
       <Filter>EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\Render\RenderableObject.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneNode.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MoveableObject.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\Exceptions\OpenGLException.h">
+      <Filter>util\Exceptions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
@@ -167,12 +164,6 @@
     <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp">
       <Filter>Render\Material\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Scene\SceneNode.cpp">
-      <Filter>Render\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render\Scene\SceneManager.cpp">
-      <Filter>Render\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="src\util\ComparableObject.cpp">
       <Filter>util</Filter>
     </ClCompile>
@@ -181,5 +172,11 @@
     </ClCompile>
     <ClCompile Include="src\EventSystem\KeyboardEventManager.cpp" />
     <ClCompile Include="src\EventSystem\MouseEventManager.cpp" />
+    <ClCompile Include="src\Scene\SceneNode.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

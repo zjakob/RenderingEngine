@@ -4,7 +4,7 @@
 #include <glm\gtx\quaternion.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 #include <util\ioHelper\keyboardHelper.h>
 
 

@@ -2,7 +2,7 @@
 #define SAG_RENDER_PASS_H
 
 #include "RenderPassData.h"
-#include "../../Scene/SceneManager.h"
+#include "../../../Scene/SceneManager.h"
 
 namespace sag
 {

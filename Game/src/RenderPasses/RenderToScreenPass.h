@@ -1,7 +1,7 @@
 #ifndef SAGAME_RENDER_TO_SCREEN_PASS_H
 #define SAGAME_RENDER_TO_SCREEN_PASS_H
 
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 #include <Render\Renderer\RenderPass\RenderPass.h>
 #include <Render\Renderer\RenderPass\RenderPassData.h>
 

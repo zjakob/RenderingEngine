@@ -2,7 +2,7 @@
 #include <glm\vec3.hpp>
 
 #include <Render\Renderer\OpenGLRenderer.h>
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 #include "RenderPasses\RenderToScreenPass.h"
 #include "RenderPasses\ShadowMapPass.h"
 #include "GlfwRenderWindow.h"

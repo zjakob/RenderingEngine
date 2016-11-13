@@ -1,11 +1,11 @@
 #ifndef SAG_RENDERABLE_OBJECT_H
 #define SAG_RENDERABLE_OBJECT_H
 
-#include "MoveableObject.h"
-#include "../Geometry/Geometry.h"
-#include "../Material/Material.h"
-#include "../Light/Light.h"
-#include "../Renderer/RenderPass/RenderPassData.h"
+#include "../Scene/MoveableObject.h"
+#include "Geometry/Geometry.h"
+#include "Material/Material.h"
+#include "Light/Light.h"
+#include "Renderer/RenderPass/RenderPassData.h"
 
 #include <utility>
 #include <memory>

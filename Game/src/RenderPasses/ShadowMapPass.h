@@ -2,7 +2,7 @@
 #define SAGAME_SHADOWMAP_PASS_H
 
 #include <Render\Material\Shader\GlslShaderProgram.h>
-#include <Render\Scene\SceneManager.h>
+#include <Scene\SceneManager.h>
 #include <Render\Renderer\RenderPass\RenderPass.h>
 #include <Render\Renderer\RenderPass\RenderPassData.h>
 

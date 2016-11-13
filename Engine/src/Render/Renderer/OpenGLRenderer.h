@@ -5,7 +5,7 @@
 
 #include "RenderWindow.h"
 #include "./RenderPass/RenderPass.h"
-#include "../Scene/SceneManager.h"
+#include "../../Scene/SceneManager.h"
 
 
 namespace sag
