@@ -16,7 +16,9 @@
     <ClInclude Include="src\EventSystem\Event\Event.h" />
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h" />
     <ClInclude Include="src\EventSystem\Event\MouseMoveEvent.h" />
+    <ClInclude Include="src\EventSystem\KeyboardEventManager.h" />
     <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h" />
+    <ClInclude Include="src\EventSystem\MouseEventManager.h" />
     <ClInclude Include="src\Exception\OpenGLException.h" />
     <ClInclude Include="src\Render\Camera\Camera.h" />
     <ClInclude Include="src\Render\Geometry\Geometry.h" />
@@ -41,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EventSystem\Event\Event.cpp" />
+    <ClCompile Include="src\EventSystem\KeyboardEventManager.cpp" />
+    <ClCompile Include="src\EventSystem\MouseEventManager.cpp" />
     <ClCompile Include="src\Render\Camera\Camera.cpp" />
     <ClCompile Include="src\Render\Material\Material.cpp" />
     <ClCompile Include="src\Render\Material\Shader\GlslShaderProgram.cpp" />

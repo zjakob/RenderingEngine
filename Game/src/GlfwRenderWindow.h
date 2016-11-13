@@ -19,17 +19,22 @@ public:
 	GLFWwindow* getWindow();
 
 	bool shouldClose();
+	void update(float deltaTime);
+	void swapBuffer();
 
 	unsigned int getWidth() { return windowWidth; }
 	unsigned int getHeight() { return windowHeight; }
 
-	void swapBuffer();
-
 private:
 	unsigned int windowWidth;
 	unsigned int windowHeight;
+	float screenCenterX;
+	float screenCenterY;
 
 	GLFWwindow* window;
+
+	void fireMouseEvents(float deltaTime);
+	void fireKeyEvents(float deltaTime);
 };
 
 } // namespace sagame

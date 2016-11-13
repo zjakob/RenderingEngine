@@ -141,6 +141,12 @@
     <ClInclude Include="src\Render\Renderer\RenderPass\RenderPassData.h">
       <Filter>Render\Renderer\RenderPass</Filter>
     </ClInclude>
+    <ClInclude Include="src\EventSystem\MouseEventManager.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventSystem\KeyboardEventManager.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
@@ -173,5 +179,7 @@
     <ClCompile Include="src\util\ioHelper\fileHelper.cpp">
       <Filter>util\ioHelper</Filter>
     </ClCompile>
+    <ClCompile Include="src\EventSystem\KeyboardEventManager.cpp" />
+    <ClCompile Include="src\EventSystem\MouseEventManager.cpp" />
   </ItemGroup>
 </Project>

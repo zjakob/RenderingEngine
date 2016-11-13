@@ -18,10 +18,6 @@ template <typename EventType, typename ListenerStrategy, typename DispatchStrate
 class EventManager
 {
 
-private:
-	DispatchStrategy dispatchStrategy;
-	ListenerStrategy listenerStrategy;
-
 public:
 	EventManager()
 	{
@@ -44,6 +40,10 @@ public:
 	{
 		listenerStrategy.addCallback(std::move(callback));
 	}
+
+private:
+	DispatchStrategy dispatchStrategy;
+	ListenerStrategy listenerStrategy;
 
 };
 
