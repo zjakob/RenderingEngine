@@ -5,6 +5,7 @@
 
 #include <EventSystem\MouseEventManager.h>
 #include <EventSystem\KeyboardEventManager.h>
+#include <util\ioHelper\keyboardHelper.h>
 
 
 float mousePosX = 0.0f;

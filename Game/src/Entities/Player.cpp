@@ -5,6 +5,7 @@
 #include <glm\gtc\matrix_transform.hpp>
 
 #include <Render\Scene\SceneManager.h>
+#include <util\ioHelper\keyboardHelper.h>
 
 
 using namespace sag;

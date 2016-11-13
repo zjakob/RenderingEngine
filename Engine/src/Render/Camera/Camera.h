@@ -17,7 +17,7 @@ public:
 	Camera(float aspectRatio, float fovyDeg);
 
 	const glm::mat4& getProjectionMatrix() const;
-	float getFovy() { return glm::degrees(fovy); }
+	float getFovy() const { return glm::degrees(fovy); }
 
 private:
 	float fovy;
