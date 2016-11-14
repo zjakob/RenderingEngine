@@ -39,7 +39,6 @@
     <ClInclude Include="src\util\ioHelper\fileHelper.h" />
     <ClInclude Include="src\util\ioHelper\keyboardHelper.h" />
     <ClInclude Include="src\util\ioHelper\PortablePixMapImageHelper.h" />
-    <ClInclude Include="src\util\ShaderHelper\glslHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EventSystem\Event\Event.cpp" />
@@ -53,7 +52,6 @@
     <ClCompile Include="src\Scene\SceneNode.cpp" />
     <ClCompile Include="src\util\ComparableObject.cpp" />
     <ClCompile Include="src\util\ioHelper\fileHelper.cpp" />
-    <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4F11D4E8-FFF7-4C27-AB4F-0B6A785CCF2A}</ProjectGuid>

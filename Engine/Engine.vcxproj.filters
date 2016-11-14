@@ -22,9 +22,6 @@
     <Filter Include="util\ioHelper">
       <UniqueIdentifier>{9e7500fe-9ce4-4c36-b8c6-593faba38a9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="util\ShaderHelper">
-      <UniqueIdentifier>{1329693e-b394-4b6e-9d09-2de6859ff437}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Render">
       <UniqueIdentifier>{280c4c20-f364-45dc-928e-c651eec6300a}</UniqueIdentifier>
     </Filter>
@@ -65,9 +62,6 @@
     </ClInclude>
     <ClInclude Include="src\EventSystem\Event\KeyDownEvent.h">
       <Filter>EventSystem\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\util\ShaderHelper\glslHelper.h">
-      <Filter>util\ShaderHelper</Filter>
     </ClInclude>
     <ClInclude Include="src\EventSystem\Listener\Strategy\SafeEventCallbackStrategy.h">
       <Filter>EventSystem\Listener\Strategy</Filter>
@@ -146,9 +140,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\util\ShaderHelper\glslHelper.cpp">
-      <Filter>util\ShaderHelper</Filter>
-    </ClCompile>
     <ClCompile Include="src\EventSystem\Event\Event.cpp">
       <Filter>EventSystem\Event</Filter>
     </ClCompile>
