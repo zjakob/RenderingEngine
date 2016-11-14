@@ -90,6 +90,12 @@ void GlslShaderProgram::setUniform(const char* name, int val)
 	glUniform1i(loc, val);
 }
 
+void GlslShaderProgram::setUniform(const char* name, float val)
+{
+	GLint loc = getUniformLocation(name);
+	glUniform1f(loc, val);
+}
+
 int GlslShaderProgram::getUniformLocation(const char* name)
 {
 	std::unordered_map<std::string, int>::const_iterator pos;

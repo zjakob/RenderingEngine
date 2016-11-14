@@ -33,8 +33,8 @@ void FloorMaterial::apply(const glm::mat4& model, const glm::mat4& view, const g
 		glm::vec3 color = glm::vec3(0.2f, 0.4f, 0.2f);
 		shader.setUniform("Material.Ka", color * 0.05f);
 		shader.setUniform("Material.Kd", color);
-		shader.setUniform("Material.Ks", glm::vec3(0.5f, 0.5f, 0.5f));
-		shader.setUniform("Material.Shininess", 150.0f);
+		shader.setUniform("Material.Ks", glm::vec3(0.2f, 0.7f, 0.2f));
+		shader.setUniform("Material.Shininess", 25.0f);
 
 
 		glm::vec3 lightPos;

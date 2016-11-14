@@ -46,6 +46,7 @@ public:
 	void setUniform(const char* name, const glm::mat3& m);
 	void setUniform(const char* name, const glm::mat4& m);
 	void setUniform(const char* name, int val);
+	void setUniform(const char* name, float val);
 	int getUniformLocation(const char* name);
 
 	GLint getAttribLocation(const char* name);
