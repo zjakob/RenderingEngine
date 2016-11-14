@@ -12,8 +12,8 @@ using namespace sagame;
 
 FloorMaterial::FloorMaterial()
 {
-	shader.attachShader("./src/ShaderSource/shadowmapsecondpass.vs", sag::VERTEX);
-	shader.attachShader("./src/ShaderSource/shadowmapsecondpass.fs", sag::FRAGMENT);
+	shader.attachShader("ShaderSource/shadowmapsecondpass.vs", sag::VERTEX);
+	shader.attachShader("ShaderSource/shadowmapsecondpass.fs", sag::FRAGMENT);
 	//shader.bindAttribLocation(0, "VertexPosition");
 	//shader.bindAttribLocation(1, "VertexNormal");
 	shader.link();

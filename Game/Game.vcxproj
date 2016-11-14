@@ -63,7 +63,8 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y $(SolutionDir)libs\glew-1.13\bin\Release\x64\glew32.dll $(OutDir)
-xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)</Command>
+xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)
+xcopy /s /i /y $(SolutionDir)Game\src\ShaderSource $(OutDir)ShaderSource </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -84,7 +85,8 @@ xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)</C
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y $(SolutionDir)libs\glew-1.13\bin\Release\x64\glew32.dll $(OutDir)
-xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)</Command>
+xcopy /y $(SolutionDir)libs\glfw-3.1.2\bin\lib-vc2015_x64\glfw3.dll $(OutDir)
+xcopy /s /i /y $(SolutionDir)Game\src\ShaderSource $(OutDir)ShaderSource </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

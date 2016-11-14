@@ -11,8 +11,8 @@ using namespace sagame;
 
 CubeMaterial::CubeMaterial()
 {
-	shader.attachShader("./src/ShaderSource/diffuse.vs", sag::VERTEX);
-	shader.attachShader("./src/ShaderSource/diffuse.fs", sag::FRAGMENT);
+	shader.attachShader("ShaderSource/diffuse.vs", sag::VERTEX);
+	shader.attachShader("ShaderSource/diffuse.fs", sag::FRAGMENT);
 
 	shader.bindAttribLocation(0, "VertexPosition");
 	shader.bindAttribLocation(1, "VertexNormal");

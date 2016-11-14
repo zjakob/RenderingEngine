@@ -36,8 +36,8 @@ ShadowMapPass::ShadowMapPass(float shadowMapWidth, float shadowMapHeight) :
 
 void ShadowMapPass::setupShaders()
 {
-	shadowShader.attachShader("./src/ShaderSource/shadowmapfirstpass.vs", sag::VERTEX);
-	shadowShader.attachShader("./src/ShaderSource/shadowmapfirstpass.fs", sag::FRAGMENT);
+	shadowShader.attachShader("ShaderSource/shadowmapfirstpass.vs", sag::VERTEX);
+	shadowShader.attachShader("ShaderSource/shadowmapfirstpass.fs", sag::FRAGMENT);
 	//shadowShader.bindAttribLocation(0, "VertexPosition");
 	shadowShader.link();
 }
