@@ -10,6 +10,8 @@ class Geometry
 public:
 	virtual void draw() = 0;
 
+	virtual ~Geometry() {}
+
 private:
 
 };

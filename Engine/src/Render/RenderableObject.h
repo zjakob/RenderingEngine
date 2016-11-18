@@ -23,6 +23,8 @@ public:
 
 	}
 
+	virtual ~RenderableObject() {}
+
 	virtual void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<Light*>& lights, RenderPassData* renderPassDataExchange) = 0;
 
 protected:
