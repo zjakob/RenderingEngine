@@ -161,13 +161,17 @@
     <ClCompile Include="src\util\ioHelper\fileHelper.cpp">
       <Filter>util\ioHelper</Filter>
     </ClCompile>
-    <ClCompile Include="src\EventSystem\KeyboardEventManager.cpp" />
-    <ClCompile Include="src\EventSystem\MouseEventManager.cpp" />
     <ClCompile Include="src\Scene\SceneNode.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene\SceneManager.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\MouseEventManager.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventSystem\KeyboardEventManager.cpp">
+      <Filter>EventSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
