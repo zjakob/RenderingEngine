@@ -29,13 +29,11 @@ public:
 		dispatchStrategy.update(listenerStrategy);
 	}
 
-	template <typename EventType>
 	void dispatchEvent(std::unique_ptr<EventType>&& event)
 	{ 
 		dispatchStrategy.dispatchEvent(std::move(event));
 	}
 
-	template<typename EventType>
 	void addEventCallback(std::function<void(EventType&)> callback)
 	{
 		listenerStrategy.addCallback(std::move(callback));
