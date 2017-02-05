@@ -1,6 +1,8 @@
 #ifndef SAG_MATERIAL_H
 #define SAG_MATERIAL_H
 
+#include <list>
+
 #include <glm/mat4x4.hpp>
 #include <GL/glew.h>
 

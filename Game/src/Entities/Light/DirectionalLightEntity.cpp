@@ -42,7 +42,7 @@ void DirectionalLightEntity::render(const glm::mat4& view, const glm::mat4& view
 	}
 }
 
-void DirectionalLightEntity::setPosition(glm::vec3& position)
+void DirectionalLightEntity::setPosition(const glm::vec3& position)
 {
 	if (auto lockedSceneNode = translationNode.lock())
 	{

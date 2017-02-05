@@ -21,8 +21,8 @@ public:
 
 	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange) override;
 
-	void setDirectionalLightCenter(glm::vec3& center) { this->light; }
-	void setPosition(glm::vec3& position);
+	void setDirectionalLightCenter(const glm::vec3& center) { this->light.setCenter(center); }
+	void setPosition(const glm::vec3& position);
 	void rotate(float angle, glm::vec3& rotationAxis);
 
 	sag::Light& getLight()

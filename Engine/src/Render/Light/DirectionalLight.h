@@ -34,6 +34,11 @@ public:
 		return perspective;
 	}
 
+	void setCenter(const glm::vec3& newCenter)
+	{
+		this->center = newCenter;
+	}
+
 private:
 	glm::vec3 center;
 	glm::mat4 perspective;

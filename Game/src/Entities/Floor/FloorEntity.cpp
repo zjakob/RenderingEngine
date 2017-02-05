@@ -29,7 +29,7 @@ void FloorEntity::render(const glm::mat4& view, const glm::mat4& viewProjection,
 	geometry->draw();
 }
 
-void FloorEntity::setPosition(glm::vec3& position)
+void FloorEntity::setPosition(const glm::vec3& position)
 {
 	if (auto lockedSceneNode = sceneNode.lock())
 	{
@@ -39,7 +39,7 @@ void FloorEntity::setPosition(glm::vec3& position)
 	}
 }
 
-void FloorEntity::scale(glm::vec3& scale)
+void FloorEntity::scale(const glm::vec3& scale)
 {
 
 	if (auto lockedSceneNode = sceneNode.lock())

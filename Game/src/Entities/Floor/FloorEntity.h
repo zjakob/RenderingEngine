@@ -21,8 +21,8 @@ public:
 
 	void render(const glm::mat4& view, const glm::mat4& viewProjection, const std::list<sag::Light*>& lights, sag::RenderPassData* renderPassDataExchange) override;
 
-	void setPosition(glm::vec3& position);
-	void scale(glm::vec3& scale);
+	void setPosition(const glm::vec3& position);
+	void scale(const glm::vec3& scale);
 
 private:
 	std::weak_ptr<sag::SceneNode> sceneNode;

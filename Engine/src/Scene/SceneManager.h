@@ -25,9 +25,9 @@ public:
 	const Camera& getMainCamera() const { return *mainCamera;  }
 	const std::list<RenderableObject*>& getRenderableObjects() const;
 
-	void SceneManager::registerLight(Light& obj);
-	void SceneManager::deregisterLight(Light& obj);
-	const std::list<Light*>& SceneManager::getLights() const;
+	void registerLight(Light& obj);
+	void deregisterLight(Light& obj);
+	const std::list<Light*>& getLights() const;
 
 
 private:

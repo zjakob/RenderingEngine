@@ -10,8 +10,8 @@ class ComparableObject
 public:
 	ComparableObject();
 
-	friend bool operator== (const ComparableObject &c1, const ComparableObject &c2);
-	friend bool operator!= (const ComparableObject &c1, const ComparableObject &c2);
+	friend bool operator==(const ComparableObject &c1, const ComparableObject &c2);
+	friend bool operator!=(const ComparableObject &c1, const ComparableObject &c2);
 
 private:
 
@@ -19,6 +19,16 @@ private:
 	const unsigned int id;
 
 };
+
+inline bool operator==(const ComparableObject &c1, const ComparableObject &c2)
+{
+    return c1.id == c2.id;
+}
+
+inline bool operator!=(const ComparableObject &c1, const ComparableObject &c2)
+{
+    return !(c1 == c2);
+}
 
 } // namespace sag
 

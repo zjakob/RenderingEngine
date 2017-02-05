@@ -29,7 +29,7 @@ void CubeEntity::render(const glm::mat4& view, const glm::mat4& viewProjection, 
 	geometry->draw();
 }
 
-void CubeEntity::setPosition(glm::vec3& position)
+void CubeEntity::setPosition(const glm::vec3& position)
 {
 	if (auto lockedSceneNode = sceneNode.lock())
 	{

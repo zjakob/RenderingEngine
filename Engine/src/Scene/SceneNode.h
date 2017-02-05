@@ -31,9 +31,9 @@ public:
 	void detachAndDestroyChildSceneNode(std::weak_ptr<SceneNode> sceneNode);
 	void detachAndDestroySceneNode();
 
-	void SceneNode::setLocalTransformation(const glm::mat4& modelMatrix);
-	const glm::mat4& getLocalTransformation() const;
-	const glm::mat4& getWorldTransformation() const;
+	void setLocalTransformation(const glm::mat4& modelMatrix);
+	const glm::mat4 getLocalTransformation() const;
+	const glm::mat4 getWorldTransformation() const;
 
 private:
 	

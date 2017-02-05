@@ -81,12 +81,12 @@ void SceneNode::setLocalTransformation(const glm::mat4& matrix)
 	updateChildren();
 }
 
-const glm::mat4& SceneNode::getLocalTransformation() const
+const glm::mat4 SceneNode::getLocalTransformation() const
 {
 	return this->modelMatrix;
 }
 
-const glm::mat4& SceneNode::getWorldTransformation() const
+const glm::mat4 SceneNode::getWorldTransformation() const
 {
 	if (auto parent = this->parent.lock())
 		if (parent->parent.expired()) // root-node's parent points to nullptr and is thus expired
